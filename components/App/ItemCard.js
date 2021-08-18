@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { truncateString, replaceIpfs } from '../functions/utils'
+import { truncateString, replaceIpfs } from '../../functions/utils'
 
 const ItemCard = ({ item, land }) => (
     <Link href={`/${land ? 'lands' : 'items'}/${item.id}`}>

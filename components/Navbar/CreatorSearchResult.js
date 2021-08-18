@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { truncateEthAddress } from '../functions/utils'
+import { truncateEthAddress } from '../../functions/utils'
 
 const CreatorSearchResult = ({ creator }) => (
     <Link href={`/creators/${creator.address}`}>

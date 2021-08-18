@@ -4,7 +4,7 @@ import {
   getRandomWebaverseImage,
   getRandomWebaverseAvatarImage,
   truncateString,
-} from '../functions/utils'
+} from '../../functions/utils'
 
 export default function ItemHeader({ item }) {
   return (

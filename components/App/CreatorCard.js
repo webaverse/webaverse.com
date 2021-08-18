@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { truncateString, getRandomWebaverseAvatarImage, getRandomWebaverseImage } from '../functions/utils'
+import { truncateString, getRandomWebaverseAvatarImage, getRandomWebaverseImage } from '../../functions/utils'
 
 const CreatorCard = ({ creator }) => (
     <Link href={`/creators/${creator.address}`}>

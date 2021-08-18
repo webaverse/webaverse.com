@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { SearchIcon } from '@heroicons/react/solid'
-import { searchCreators, searchItems, searchLands } from '../functions/api'
+import { searchCreators, searchItems, searchLands } from '../../functions/api'
 import SearchResults from './SearchResults'
 
 const SearchInput = ({ extended }) => {

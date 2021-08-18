@@ -1,7 +1,7 @@
 import {
   getRandomWebaverseAvatarImage,
   truncateEthAddress,
-} from '../functions/utils'
+} from '../../functions/utils'
 
 export default function SilkTable({ creators }) {
   return (

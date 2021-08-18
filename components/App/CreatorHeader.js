@@ -1,7 +1,7 @@
 import {
   getRandomWebaverseImage,
   getRandomWebaverseAvatarImage,
-} from '../functions/utils'
+} from '../../functions/utils'
 
 export default function CreatorHeader({ creator }) {
   return (
