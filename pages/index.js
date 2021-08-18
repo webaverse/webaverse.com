@@ -1,4 +1,4 @@
-import BlogPostCards from "../components/BlogPostCards";
+import BlogPostCards from "../components/Landing/BlogPostCards";
 import CtaCard from "../components/CtaCard";
 import CtaCardOverlay from "../components/CtaCardOverlay";
 import Hero from "../components/Hero";

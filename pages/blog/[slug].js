@@ -1,4 +1,4 @@
-import SEO from "../../components/SEO";
+import SEO from "../../components/Shared/SEO";
 import { getBlogPost } from "../../functions/api";
 
 export default function BlogPost({ post }) {

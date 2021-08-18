@@ -1,4 +1,4 @@
-import SEO from "../components/SEO";
+import SEO from "../components/Shared/SEO";
 import SilkTable from "../components/SilkTable";
 import Tabs from "../components/Tabs";
 import { getCreatorsWithBalance } from "../functions/api";

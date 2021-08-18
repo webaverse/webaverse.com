@@ -1,5 +1,5 @@
 import ItemCard from '../components/ItemCard';
-import SEO from '../components/SEO';
+import SEO from '../components/Shared/SEO';
 import Tabs from '../components/Tabs'
 
 import { getLands } from "../functions/api";

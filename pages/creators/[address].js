@@ -3,7 +3,7 @@ import ItemCard from "../../components/ItemCard";
 import CreatorHeader from "../../components/CreatorHeader";
 import CreatorSidebar from "../../components/CreatorSidebar";
 import { getNfts } from "../../functions/graphql";
-import SEO from "../../components/SEO";
+import SEO from "../../components/Shared/SEO";
 import { getRandomWebaverseAvatarImage } from "../../functions/utils";
 
 export default function CreatorPage({ creator, items }) {

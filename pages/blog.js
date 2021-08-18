@@ -1,5 +1,5 @@
-import BlogPostCards from "../components/BlogPostCards";
-import SEO from "../components/SEO";
+import BlogPostCards from "../components/Landing/BlogPostCards";
+import SEO from "../components/Shared/SEO";
 import { getBlogPosts } from "../functions/api";
 
 export default function Blog({ blogPosts }) {

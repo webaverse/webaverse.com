@@ -1,8 +1,8 @@
 import ItemHeader from "../../components/ItemHeader";
-import SEO from "../../components/SEO";
+import SEO from "../../components/Shared/SEO";
 import { getItem } from "../../functions/api";
 import { EyeIcon, CubeIcon } from "@heroicons/react/solid";
-import ButtonIconExternal from "../../components/ButtonIconExternal";
+import ButtonIconExternal from "../../components/App/ButtonIconExternal";
 
 export default function Item({ item }) {
   return (

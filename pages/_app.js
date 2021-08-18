@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Router from "next/router";
 import NProgress from "nprogress";
 import "../style/nprogress.css";
-import SEO from "../components/SEO";
+import SEO from "../components/Shared/SEO";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
