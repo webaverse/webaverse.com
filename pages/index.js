@@ -35,7 +35,7 @@ export default function Home({ creatorsNum, landsNum, blogPosts }) {
             description="Build a meme economy in your server. No setup required, everyone will have a Webaverse Ethereum address. Mint anything from images, 3D models, avatars, and more!"
             cta="Add Bot to Discord"
             url="https://discord.com/oauth2/authorize?client_id=758956702669209611&permissions=0&scope=bot"
-            image="https://webaverse.com/shebang.gif"
+            image="/img/bot.gif"
           />
           <MissionSection />
           <CtaCardOverlay
