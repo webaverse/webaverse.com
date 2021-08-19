@@ -10,7 +10,7 @@ export default function CreatorPage({ creator, items }) {
   return (
     <div className="flex-grow">
       <SEO
-        title={creator.name || 'Anonymous'}
+        title={`${creator.name || 'Anonymous'}'s account | Webaverse`}
         description={`See ${creator.name || 'Anonymous'}'s Webaverse profile.`}
         image={creator.avatarPreview || getRandomWebaverseAvatarImage()}
       />
