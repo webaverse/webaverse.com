@@ -42,7 +42,7 @@ export function getRandomWebaverseImage() {
     'https://cdn.discordapp.com/banners/433492168825634816/080a87e705da9b3f9040486040177da9.jpg?size=2048',
   ]
 
-  return images[images.length * Math.random() || 0]
+  return images[Math.floor(images.length * Math.random())]
 }
 
 export function getRandomWebaverseAvatarImage() {
@@ -50,5 +50,5 @@ export function getRandomWebaverseAvatarImage() {
     'https://preview.exokit.org/QmNcA1Qkis2yuPiPYhqSPm3pW2wa91uw1s8hy6ZiwvrHtj.vrm/preview.png',
   ]
 
-  return images[images.length * Math.random() || 0]
+  return images[Math.floor(images.length * Math.random())]
 }

@@ -16,14 +16,14 @@ const CreatorCard = ({ creator }) => (
           <li>
             <div className="w-auto h-52 flex justify-center align-middle overflow-hidden bg-gray-200">
               <img
-                alt="creators home space"
                 src={
-                  creator.homeSpacePreview
+                  creator.homeSpacePreview !== ''
                     ? creator.homeSpacePreview
                     : getRandomWebaverseImage()
                 }
                 // onError={addDefaultSrc}
                 className="object-cover flex-shrink-0 min-h-full min-w-full group-hover:opacity-75"
+                alt="creators home space"
               />
             </div>
           </li>

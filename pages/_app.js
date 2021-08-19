@@ -9,13 +9,14 @@ Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
 
-function MyApp({ Component }) {
+function MyApp({ Component, pageProps }) {
   return (
     <div className="flex">
       <div className="flex-grow bg-gray-100">
         <Navbar />
         <div className="max-w-screen-2xl mx-auto min-h-screen pt-20">
-          <Component />
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          <Component {...pageProps} />
         </div>
         <Footer />
       </div>

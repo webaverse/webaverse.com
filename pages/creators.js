@@ -23,7 +23,7 @@ export default function Creators({ creators }) {
         {creators.map(
           (creator) =>
             (creator.name || creator.avatarPreview) && (
-              <CreatorCard creator={creator} />
+              <CreatorCard key={creator.address} creator={creator} />
             ),
         )}
       </div>

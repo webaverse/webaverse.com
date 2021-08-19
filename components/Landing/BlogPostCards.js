@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 const BlogPostCards = ({ posts, title, description }) =>
-  posts.posts?.length > 0 && (
+  posts?.posts?.length > 0 && (
     <div className="relative pt-8 pb-20 px-4 sm:px-6 lg:pt-8 lg:pb-28 lg:px-8">
       <div className="absolute inset-0">
         <div className="h-1/3 sm:h-2/3" />
