@@ -3,7 +3,8 @@
     "eslint:recommended",
     "plugin:prettier/recommended",
     "plugin:react/recommended",
-    "airbnb"
+    "airbnb",
+    "prettier"
   ],
   "env": {
     "node": true,
@@ -24,11 +25,15 @@
   "ignorePatterns": ["tailwind.config.js", "**/libs/*"],
   "rules": {
     "semi": ["error", "never"],
+    "import/prefer-default-export": "off",
+    "jsx-a11y/anchor-is-valid": "off",
     "import/extensions": "off",
+    "implicit-arrow-linebreak": "off",
     "react/prop-types": "off",
     "react/no-danger": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-indent": [2, 2],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "prettier/prettier": "error"
   }
 }

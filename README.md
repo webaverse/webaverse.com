@@ -36,7 +36,6 @@
   <img alt="map" target="_blank" src="https://i.imgur.com/QxbfMHr.png" height="190" width="32%">
 </a>
 
-
 ## Features
 
 - Mint NFTs from file upload or URL
@@ -51,18 +50,15 @@
 - User profile pages with avatars and custom loadouts
 - Top down map of the current season with interactive parcel links
 
-
 ### Generate trading cards
 
 Generate a unique trading card representation for every NFT with RNG elements and battle stats.
 
 ![](https://i.imgur.com/vvAix1q.jpg)
 
-
 ## Development
 
 https://nextjs.org/docs/deployment
-
 
 ## Contributing
 

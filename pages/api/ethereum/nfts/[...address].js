@@ -1,8 +1,4 @@
-import {
-  ApolloClient,
-  InMemoryCache,
-  gql,
-} from '@apollo/client'
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
 import { replaceIpfs, replaceHttp } from '../../../../functions/utils'
 
 export default async function handler(req, res) {
@@ -19,9 +15,8 @@ export default async function handler(req, res) {
     })
 
     try {
-      const nftData = await client
-        .query({
-          query: gql`
+      const nftData = await client.query({
+        query: gql`
             query getNfts {
               tokens(
                 skip: ${pageNum * NFTS_PER_PAGE}, 
@@ -32,25 +27,30 @@ export default async function handler(req, res) {
               }
             }
           `,
-        })
+      })
 
       const requests = nftData.data.tokens?.map((token) => {
         if (token.uri) {
           return fetch(replaceHttp(replaceIpfs(token.uri)))
             .then((data) => data.json())
-            .then((res) => {
-              if (res.image || res.image_url || res.animation_url) {
+            .then((data) => {
+              if (data.image || data.image_url || data.animation_url) {
+                const image =
+                  replaceIpfs(data.image) ||
+                  replaceIpfs(data.image_url) ||
+                  replaceIpfs(data.animation_url) ||
+                  ''
+
                 nfts.push({
-                  ...res,
-                  image: res.image ? replaceIpfs(res.image)
-                    : res.image_url ? replaceIpfs(res.image_url)
-                      : '',
-                  animation_url: res.animation_url ? replaceIpfs(res.animation_url) : '',
+                  ...data,
+                  image,
+                  animation_url: replaceIpfs(data.animation_url) || '',
                 })
               }
             })
             .catch((err) => err)
         }
+        return null
       })
 
       await Promise.all(requests)

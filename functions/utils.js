@@ -1,7 +1,8 @@
 export function replaceIpfs(url) {
-  url = url.replace('ipfs://Q', 'https://infura-ipfs.io/ipfs/Q')
-  url = url.replace('ipfs://ipfs/', 'https://infura-ipfs.io/ipfs/')
-  url = url.replace('https://ipfs.io/ipfs/', 'https://infura-ipfs.io/ipfs/')
+  url
+    .replace('ipfs://Q', 'https://infura-ipfs.io/ipfs/Q')
+    .replace('ipfs://ipfs/', 'https://infura-ipfs.io/ipfs/')
+    .replace('https://ipfs.io/ipfs/', 'https://infura-ipfs.io/ipfs/')
 
   return url
 }
@@ -11,7 +12,8 @@ export function replaceHttp(url) {
 }
 
 export function addDefaultSrc(e) {
-  e.target.src = 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'
+  e.target.src =
+    'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'
 }
 
 export function truncateString(string, length) {
@@ -40,7 +42,7 @@ export function getRandomWebaverseImage() {
     'https://cdn.discordapp.com/banners/433492168825634816/080a87e705da9b3f9040486040177da9.jpg?size=2048',
   ]
 
-  return images[(images.length * Math.random()) | 0]
+  return images[images.length * Math.random() || 0]
 }
 
 export function getRandomWebaverseAvatarImage() {
@@ -48,5 +50,5 @@ export function getRandomWebaverseAvatarImage() {
     'https://preview.exokit.org/QmNcA1Qkis2yuPiPYhqSPm3pW2wa91uw1s8hy6ZiwvrHtj.vrm/preview.png',
   ]
 
-  return images[(images.length * Math.random()) | 0]
+  return images[images.length * Math.random() || 0]
 }
