@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const BlogPostCards = ({ posts, title, description }) => (
+const BlogPostCards = ({ posts, title, description }) => posts.length > 0 && (
     <div className="relative pt-8 pb-20 px-4 sm:px-6 lg:pt-8 lg:pb-28 lg:px-8">
         <div className="absolute inset-0">
             <div className="h-1/3 sm:h-2/3" />
@@ -15,7 +15,7 @@ const BlogPostCards = ({ posts, title, description }) => (
                 </p>
             </div>
             <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-                {posts.posts.map((post) => (
+                {posts.posts?.map((post) => (
                     <Link key={post.uuid} href={`/blog/${post.slug}`}>
                         <a>
                             <div
