@@ -22,7 +22,7 @@ const ItemCard = ({ item, land }) => (
           <li className="relative px-4 py-4 sm:px-6 text-left">
             <div className="mb-8">
               <span className="text-2xl font-semibold">
-                {truncateString(item.name, 12) || 'Untitled'}
+                {truncateString(item.name, 20) || 'Untitled'}
               </span>
             </div>
             <Link href={`/creators/${item.owner?.address || ''}`}>
