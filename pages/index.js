@@ -1,232 +1,76 @@
-import React, { Component, Fragment, useState, useEffect } from "react";
-import Head from "next/head";
-import {useRouter} from 'next/router';
-import axios from 'axios';
-import {getTokens} from "../functions/UIStateFunctions.js";
-// import Hero from "../components/Hero";
-// import CardRow from "../components/CardRow";
-// import CardRowHeader from "../components/CardRowHeader";
-import Asset from "../components/Asset";
-import Minter from "../components/Minter";
-// import Loader from "../components/Loader";
-import Masonry from "../components/Masonry";
-// import ProgressBar from "../components/ProgressBar";
-// import {FileDrop} from "react-file-drop";
-import {makeWbn, makeBin, makePhysicsBake} from "../webaverse/build";
-import {getExt, schedulePerFrame, cancelEvent} from "../webaverse/util";
-import {storageHost, cardScrollViews} from "../webaverse/constants";
-import JSZip from '../webaverse/jszip.js';
+import BlogPostCards from '../components/Landing/BlogPostCards'
+import CtaCard from '../components/Landing/CtaCard'
+import CtaCardOverlay from '../components/Landing/CtaCardOverlay'
+import Hero from '../components/Landing/Hero'
+import LandingCopy from '../components/Landing/LandingCopy'
+import MissionSection from '../components/Landing/MissionSection'
+import NewsletterSignup from '../components/Landing/NewsletterSignup'
+import StatsCard from '../components/Landing/StatsCard'
+import TestimonialCard from '../components/Landing/TestimonialCard'
+import { getBlogPosts, getCreators, getLands } from '../functions/api'
 
-class AssetOverlayBackground extends Component {
-  constructor(props) {
-    super(props);
-    this.keyDown = this.keyDown.bind(this);
-    this.onEscape = this.props.onEscape;
-  }
-  componentDidMount() {
-    window.addEventListener('keydown', this.keyDown);
-  }
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.keyDown);
-  }
-  componentDidUpdate() {
-  }
-  keyDown(e) {
-    if (e.which === 27) {
-      this.onEscape && this.onEscape(e);
-    }
-  }
-  render() {
-    const {router} = this.props;
-    return (
-      <div className="asset-overlay-background" onClick={e => {
-        router.push('/', '/', {
-          scroll: false,
-        });
-      }} />
-    );
-  }
+export default function Home({ creatorsNum, landsNum, blogPosts }) {
+  return (
+      <div>
+          <Hero />
+          <StatsCard
+            creatorsNum={creatorsNum}
+            itemsNum={758}
+            landsNum={landsNum}
+          />
+          <TestimonialCard
+            background="https://pbs.twimg.com/media/E2TzsU9VcAEqfs8?format=jpg"
+            logo=""
+            description="coolest thing about webaverse imo is that its completely open source and the people building it has been streaming their work since inception
+
+        taking your mooncats on a walk in your meebit avatars while aping into uniswap shitcoin in a virtual trading pit is closer than u think"
+            name="@CL207"
+            title="cat"
+            company="eGirl Capital"
+          />
+          <LandingCopy />
+          <CtaCard
+            title1="Have a Discord server?"
+            title2="Invite the Webaverse bot."
+            description="Build a meme economy in your server. No setup required, everyone will have a Webaverse Ethereum address. Mint anything from images, 3D models, avatars, and more!"
+            cta="Add Bot to Discord"
+            url="https://discord.com/oauth2/authorize?client_id=758956702669209611&permissions=0&scope=bot"
+            image="https://webaverse.com/shebang.gif"
+          />
+          <MissionSection />
+          <CtaCardOverlay
+            title="Join the Webaverse Team"
+            description="Webaverse is an open source project to manifest the best version of the Metaverse. We want to make the web fun again while enabling users to take back control of their data.
+
+        We are looking for the smartest engineers in game-dev, web3 product design, and crypto to join us."
+            cta="Join Webaverse Team"
+            url="https://www.notion.so/webaverse/Webaverse-is-Hiring-8fb49c069c2f450f93ebb911149f21bd"
+            image="https://blog.webaverse.com/content/images/size/w1000/2021/08/VRChat_dWPbbvrSnT.jpg"
+          />
+          <BlogPostCards
+            posts={blogPosts}
+            title="From the Webaverse blog"
+            description="Webaverse, explained. Learn about the latest developments of the Metaverse."
+          />
+          <NewsletterSignup
+            title="Become a Metaverse Insider"
+            description="The open metaverse is also a cultural phenomenon emerging in terms of coordination and alignment. There has to be compelling stories that can guide us all in the right direction."
+            cta="Subscribe"
+          />
+      </div>
+  )
 }
 
-const PagesRoot = ({
-  data,
-  selectedView,
-  setSelectedView,
-  token,
-  setToken,
-  mintMenuOpen,
-  setMintMenuOpen,
-  searchResults,
-  setSearchResults,
-}) => {
-    const [avatars, setAvatars] = useState(null);
-    const [art, setArt] = useState(null);
-    const [models, setModels] = useState(null);
-    const [loading, setLoading] = useState(true);    
-    // const [mintMenuLarge, setMintMenuLarge] = useState(false);
-    const [selectedTab, setSelectedTab] = useState('');
-    const [selectedPage, setSelectedPage] = useState(0);
-    const [loadingMessge, setLoadingMessage] = useState('');
-    const [assetSelectedView, setAssetSelectedView] = useState('cards');
-    const [previewId, setPreviewId] = useState('');
-    const [masonryOpen, setMasonryOpen] = useState(true);
-    const [masonryOpening, setMasonryOpening] = useState(false);
-    
-    const router = useRouter();
-
-    useEffect(() => {
-        (async () => {
-            const tokens1 = await getTokens(1, 100);
-            const tokens2 = await getTokens(100, 200);
-            const tokens = tokens1.concat(tokens2);
-
-            setAvatars(
-                tokens.filter((o) =>
-                    o.properties.ext.toLowerCase().includes("vrm")
-                )
-            );
-            setArt(
-                tokens.filter((o) =>
-                    o.properties.ext.toLowerCase().includes("png")
-                )
-            );
-            setModels(
-                tokens.filter((o) =>
-                    o.properties.ext.toLowerCase().includes("glb")
-                )
-            );
-            setLoading(false);
-        })();
-    }, []);
-    useEffect(() => {
-      if (mintMenuOpen && masonryOpen && !masonryOpening) {
-        setTimeout(() => {
-          setMasonryOpen(false);
-          setMasonryOpening(false);
-        }, 500);
-        setMasonryOpening(true);
-      } else if (!mintMenuOpen && !masonryOpen) {
-        setMasonryOpen(true);
-        setMasonryOpening(false);
-      }
-    }, [mintMenuOpen, masonryOpening]);
-    useEffect(() => {
-      if (!token && assetSelectedView !== 'cards') {
-        setAssetSelectedView('cards');
-      }
-    }, [token, assetSelectedView]);
-    const mintMenuLarge = selectedPage === 3;
-
-    // console.log('masonry open', {mintMenuOpen, masonryOpen, masonryOpening});
-
-    return (
-        <Fragment>
-            <Head>
-                <title>Webaverse</title>
-                <meta
-                    name="description"
-                    content={"Virtual world built with NFTs."}
-                />
-                <meta property="og:title" content={"Webaverse"} />
-                <meta
-                    property="og:image"
-                    content={"https://webaverse.com/webaverse.png"}
-                />
-                <meta name="theme-color" content="#c4005d" />
-                <meta name="twitter:card" content="summary_large_image" />
-            </Head>
-            {/* <Hero
-                heroBg="/hero.gif"
-                title="Webaverse"
-                subtitle="The virtual world built with NFTs"
-                callToAction="Play"
-                ctaUrl="https://app.webaverse.com"
-            /> */}
-            <div className={`container ${mintMenuOpen ? 'open' : ''} ${mintMenuLarge ? 'large' : ''} ${token ? 'background' : ''}`}>
-                {!cardScrollViews.includes(selectedView) ?
-                  <div className="streetchain">
-                    <div className="bar" />
-                  </div>
-                : null}
-                {mintMenuOpen ?
-                  <Minter
-                    mintMenuOpen={mintMenuOpen}
-                    setMintMenuOpen={setMintMenuOpen}
-                    selectedTab={selectedTab}
-                    setSelectedTab={setSelectedTab}
-                    loading={loading}
-                    setLoading={setLoading}
-                    animate={true}
-                  />
-                : null}
-                {masonryOpen ?
-                  <Masonry
-                    selectedView={selectedView}
-                    loading={loading}
-                    mintMenuOpen={mintMenuOpen}
-                    setMintMenuOpen={setMintMenuOpen}
-                    avatars={avatars}
-                    art={art}
-                    models={models}
-                    searchResults={searchResults}
-                  />
-                : null}
-            </div>
-            {token ?
-              <div className="asset-overlay">
-                <AssetOverlayBackground
-                  router={router}
-                  onEscape={e => {
-                    router.push('/', undefined, {
-                      scroll: false,
-                    });
-                  }}
-                />
-                <div className="asset-overlay-foreground">
-                  <Asset
-                    data={token}
-                    selectedView={assetSelectedView}
-                    setSelectedView={setAssetSelectedView}
-                  />
-                </div>
-              </div>
-            : null}
-        </Fragment>
-    );
-};
-export default PagesRoot;
-
-/* export async function getServerSideProps(context) {
-  const urlPrefix = (() => {
-    if (typeof window !== 'undefined') {
-      return window.location.protocol + '//' + window.location.host;
-    } else {
-      return 'http://' + context.req.headers.host;
-    }
-  })();
-  const u = new URL('cards.svg', urlPrefix).href;
-  // console.log('got u', u);
-  
-  const [
-    // o,
-    cardSvgSource,
-  ] = await Promise.all([
-    (async () => {
-      const res = await fetch(u);
-      const s = await res.text();
-      return s;
-    })(),
-  ]);
-  // const token = o?.token;
-  // const networkName = o?.networkName;
+export async function getServerSideProps() {
+  const creators = await getCreators()
+  const lands = await getLands()
+  const blogPosts = await getBlogPosts()
 
   return {
     props: {
-      data: {
-        // token,
-        // networkName,
-        cardSvgSource,
-      },
+      creatorsNum: creators.length,
+      landsNum: lands.length,
+      blogPosts,
     },
-  };
-} */
+  }
+}
