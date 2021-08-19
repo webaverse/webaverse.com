@@ -3,7 +3,5 @@
     "semi": false,
     "singleQuote": true,
     "bracketSpacing": true,
-    "requirePragma": true,
-    "insertPragma": true,
     "printWidth": 80
 }

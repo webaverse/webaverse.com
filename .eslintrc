@@ -23,12 +23,12 @@
   "plugins": ["react", "prettier"],
   "ignorePatterns": ["tailwind.config.js", "**/libs/*"],
   "rules": {
-    "semi": ["error", "never"], 
+    "semi": ["error", "never"],
     "import/extensions": "off",
     "react/prop-types": "off",
     "react/no-danger": "off",
     "react/react-in-jsx-scope": "off",
-    "react/jsx-indent": [1, 4],
+    "react/jsx-indent": [2, 2],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 }
