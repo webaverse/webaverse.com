@@ -1,10 +1,10 @@
 import { EyeIcon, CubeIcon } from '@heroicons/react/solid'
 import ItemHeader from '../../components/App/ItemHeader'
 import SEO from '../../components/Shared/SEO'
-import { getItem } from '../../functions/api'
+import { getItem, getCreator } from '../../functions/api'
 import ButtonIconExternal from '../../components/App/ButtonIconExternal'
 
-export default function Item({ item }) {
+export default function Item({ item, creator }) {
   return (
     <div>
       <SEO
@@ -12,7 +12,7 @@ export default function Item({ item }) {
         description={`See ${item.name || 'Untitled'} in Webaverse.`}
         image={item.image}
       />
-      <ItemHeader item={item} />
+      <ItemHeader item={item} creator={creator} />
       <div className="pt-32" />
       <div className="lg:pt-80" />
       <div className="px-6 lg:pt-80">
@@ -50,10 +50,12 @@ export async function getServerSideProps(context) {
   const { id } = context.query
 
   const item = await getItem(id)
+  const creator = await getCreator(item.currentOwnerAddress)
 
   return {
     props: {
       item,
+      creator,
     },
   }
 }
