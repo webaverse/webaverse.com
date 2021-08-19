@@ -36,7 +36,6 @@ export function getRandomWebaverseImage() {
     'https://blog.webaverse.com/content/images/2021/08/image-10.png',
     'https://blog.webaverse.com/content/images/size/w1000/2021/08/VRChat_dWPbbvrSnT.jpg',
     'https://blog.webaverse.com/content/images/size/w2000/2021/07/SeasonSwitchNew_copy.jpg',
-    'https://blog.webaverse.com/content/images/size/w1000/2021/07/image-9.png',
     'https://blog.webaverse.com/content/images/size/w2000/2021/04/0bd04670b1e51acf3ba0e3eaad2d45f9-1.jpg',
     'https://blog.webaverse.com/content/images/size/w1000/2021/01/thestreet.PNG',
     'https://cdn.discordapp.com/banners/433492168825634816/080a87e705da9b3f9040486040177da9.jpg?size=2048',
