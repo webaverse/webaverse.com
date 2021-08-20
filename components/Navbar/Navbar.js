@@ -23,7 +23,7 @@ function classNames(...classes) {
 }
 
 const Navbar = () => (
-  <div className="bg-gray-100 w-full h-20 lg:h-16 z-20 fixed shadow-md">
+  <div className="bg-gray-100 w-full h-20 lg:h-16 z-20 fixed">
     {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
     <Popover
       as="header"
