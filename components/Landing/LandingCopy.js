@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 export default function LandingCopy() {
   return (
     <div className="relative py-16 overflow-hidden">
@@ -118,29 +119,22 @@ export default function LandingCopy() {
           </p>
         </div>
         <div className="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
-          <figure>
+          <h2>Interoperability</h2>
+          <p>
+            We don't want to just build a virtual world for our NFTs, we want to
+            support NFTs to be operable in Webaverse from other contracts as
+            well such as DCL, CV, Axies, etc.
+          </p>
+          <h2>Community</h2>
+          <div className="w-full h-80 rounded-lg overflow-hidden">
             <img
-              className="w-full rounded-lg"
-              src="https://blog.webaverse.com/content/images/size/w2000/2021/07/SeasonSwitchNew_copy.jpg"
+              className="w-full h-full object-cover rounded-lg"
+              src="/img/community.png"
               alt=""
               width={1310}
               height={873}
             />
-          </figure>
-          <blockquote>
-            <p>
-              What we need are the shipping networks and cross continental
-              railways between virtual worlds for identities, ideas, and value
-              to flow, so we can have a 3D Internet.
-            </p>
-          </blockquote>
-          <h2>Interoperability</h2>
-          <p>
-            We don&lsquo;t want to just build a virtual world for our NFTs, we
-            want to support NFTs to be operable in Webaverse from other
-            contracts as well such as DCL, CV, Axies, etc.
-          </p>
-          <h2>Community</h2>
+          </div>
           <p>
             Many of us are on Discord, so we should be able to control the
             metaverse from there.
@@ -152,9 +146,18 @@ export default function LandingCopy() {
             onboarding experience for everyone.
           </p>
           <h2>Avatars</h2>
+          <div className="w-full h-80 rounded-lg overflow-hidden">
+            <img
+              className="w-full h-full object-cover rounded-lg"
+              src="/img/avatars.png"
+              alt=""
+              width={1310}
+              height={873}
+            />
+          </div>
           <p>
             Avatars are the audio-visual representation of self. Currently
-            they&lsquo;re 2D profile pages for billions of people, while new
+            they're 2D profile pages for billions of people, while new
             generations are growing up being used to 3D characters.
           </p>
           <h2>NFTs</h2>
@@ -170,9 +173,25 @@ export default function LandingCopy() {
             possibilities for creators to make money in the virtual economy.
           </p>
           <h2>The Street</h2>
+          <div className="w-full h-80 rounded-lg overflow-hidden">
+            <img
+              className="w-full h-full object-cover rounded-lg"
+              src="https://blog.webaverse.com/content/images/size/w2000/2021/07/SeasonSwitchNew_copy.jpg"
+              alt=""
+              width={1310}
+              height={873}
+            />
+          </div>
+          <blockquote>
+            <p>
+              What we need are the shipping networks and cross continental
+              railways between virtual worlds for identities, ideas, and value
+              to flow, so we can have a 3D Internet.
+            </p>
+          </blockquote>
           <p>
-            The Street threads the needle between all these worlds. It&lquo;s
-            the next step from scrolling a 2D page to strolling through 3D
+            The Street threads the needle between all these worlds. It's the
+            next step from scrolling a 2D page to strolling through 3D
             cyberspace.
           </p>
           <p>
