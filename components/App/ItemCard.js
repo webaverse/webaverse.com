@@ -13,6 +13,7 @@ import { getFileExt } from '../../functions/utils'
 const ItemCard = ({ item, land, href, creator }) => {
   const itemImage = getItemImage(item)
   const itemImageExt = getFileExt(itemImage)
+  creator = creator || item.owner
 
   return (
     <Link href={href}>
