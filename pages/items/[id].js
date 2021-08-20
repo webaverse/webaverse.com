@@ -25,7 +25,7 @@ export default function Item({ item, creator }) {
         {item.description && (
           <div className="py-4">
             <h2 className="text-lg py-2 font-semibold">Description</h2>
-            <p className="text-lg">{item.description}</p>
+            <p className="text-lg max-w-sm">{item.description}</p>
           </div>
         )}
         <div className="py-4">
