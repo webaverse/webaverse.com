@@ -7,20 +7,22 @@ import ItemCard from '../../components/App/Item/ItemCard'
 import CreatorHeader from '../../components/App/Creator/CreatorHeader'
 import CreatorSidebar from '../../components/App/Creator/CreatorSidebar'
 import SEO from '../../components/Shared/SEO'
-import { getCreatorName, getCreatorProfileImage } from '../../functions/creator'
+import {
+  getCreatorBio,
+  getCreatorName,
+  getCreatorProfileImage,
+} from '../../functions/creator'
 
 export default function CreatorPage({
   creator,
   webaverseItems,
   ethereumItems,
 }) {
-  const name = getCreatorName(creator)
-
   return (
     <div className="flex-grow">
       <SEO
-        title={`${name}'s account | Webaverse`}
-        description={`See ${name}'s Webaverse profile.`}
+        title={`${getCreatorName(creator)}'s account | Webaverse`}
+        description={getCreatorBio(creator)}
         image={getCreatorProfileImage(creator)}
       />
       <CreatorHeader creator={creator} />
