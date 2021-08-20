@@ -32,6 +32,14 @@ export async function getOpenseaNfts(address) {
     .then((res) => (res.error ? null : res))
 }
 
+export async function getOpenseaItem(contractAddress, id) {
+  return fetch(
+    `http://localhost:3000/api/ethereum/assets/${contractAddress}/${id}`,
+  )
+    .then((res) => res.json())
+    .then((res) => (res.error ? null : res))
+}
+
 export async function getAllCreatorsProfiles(address) {
   const openSeaName = await getCreatorsOpenSeaName(address)
   const foundationProfile = await getFoundationProfile(address)
