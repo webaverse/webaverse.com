@@ -1,25 +1,36 @@
 import Link from 'next/link'
-
 import {
-  getRandomWebaverseAvatarImage,
-  truncateString,
-} from '../../functions/utils'
+  getCreatorProfileImage,
+  getCreatorShortName,
+} from '../../functions/creator'
+import { getItemImage, getItemName } from '../../functions/item'
+
+import { getFileExt } from '../../functions/utils'
 
 export default function ItemHeader({ item, creator }) {
+  const itemImage = getItemImage(item)
+  const itemImageExt = getFileExt(itemImage)
+
   return (
     <>
-      <div className="shadow-inner bg-gray-300 relative lg:absolute top-0 left-0 w-full px-14 py-14">
-        <div className="mx-auto max-w-lg h-auto py-24">
-          <img
-            alt={`the header for the item ${item.name || 'Untitled'}`}
-            className="object-contain w-full h-full"
-            src={
-              // !!item.animation_url
-              //   ? item.animation_url
-              // :
-              item.image
-            }
-          />
+      <div className="shadow-inner bg-gray-300 relative lg:absolute top-0 left-0 w-full h-815 px-14 py-24">
+        <div className="mx-auto max-w-lg h-full max-h-full py-24 overflow-hidden">
+          {itemImageExt === 'mp4' ? (
+            <video
+              muted
+              autoPlay
+              loop
+              src={itemImage}
+              className="object-contain w-full h-full"
+            />
+          ) : (
+            <img
+              src={itemImage}
+              alt={`the item ${getItemName(item)}`}
+              // onError={addDefaultSrc}
+              className="object-contain w-full h-full"
+            />
+          )}
         </div>
       </div>
       <div className="absolute lg:top-96">
@@ -30,16 +41,12 @@ export default function ItemHeader({ item, creator }) {
                 <div className="flex w-full px-2">
                   <img
                     className="h-10 w-10 rounded-full"
-                    src={
-                      creator.avatarPreview
-                        ? creator.avatarPreview
-                        : getRandomWebaverseAvatarImage()
-                    }
+                    src={getCreatorProfileImage(creator)}
                     alt=""
                   />
                   <div className="pl-2 flex flex-col justify-center">
                     <span className="font-semibold">
-                      {truncateString(creator.name, 12) || 'Anonymous'}
+                      {getCreatorShortName(creator, 12)}
                     </span>
                   </div>
                 </div>
