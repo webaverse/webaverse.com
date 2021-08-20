@@ -10,12 +10,12 @@ import {
 } from '../../functions/item'
 import { getFileExt } from '../../functions/utils'
 
-const ItemCard = ({ item, land }) => {
+const ItemCard = ({ item, land, href, creator }) => {
   const itemImage = getItemImage(item)
   const itemImageExt = getFileExt(itemImage)
 
   return (
-    <Link href={`/${land ? 'lands' : 'items'}/${item.id}`}>
+    <Link href={href}>
       <a className="group" key={`${item.hash}-${item.id}`}>
         <div
           key={`${item.hash}-${item.id}`}
@@ -25,7 +25,7 @@ const ItemCard = ({ item, land }) => {
             <li>
               <div className="w-auto h-96 min-h-full flex justify-center align-middle overflow-hidden bg-gray-200">
                 {itemImageExt === 'mp4' ? (
-                  <video muted autoPlay src={itemImage} />
+                  <video muted loop autoPlay src={itemImage} />
                 ) : (
                   <img
                     src={itemImage}
@@ -42,19 +42,19 @@ const ItemCard = ({ item, land }) => {
                   {getShortItemName(item, 20)}
                 </span>
               </div>
-              <Link href={`/creators/${item.owner?.address || ''}`}>
+              <Link href={`/creators/${creator.address}`}>
                 <a>
                   <div className="flex">
                     <span className="h-8 w-8 rounded-full overflow-hidden bg-gray-100">
                       <img
                         className="object-cover h-8 w-8 rounded-full"
-                        src={getCreatorProfileImage(item.owner)}
-                        alt=""
+                        src={getCreatorProfileImage(creator)}
+                        alt="creator profile"
                       />
                     </span>
                     <div className="flex items-center">
                       <span className="pl-2 text-md text-gray-500">
-                        {item.owner && getCreatorShortName(item.owner, 17)}
+                        {getCreatorShortName(creator, 17)}
                       </span>
                     </div>
                   </div>
