@@ -3,14 +3,19 @@ import ItemHeader from '../../components/App/Item/ItemHeader'
 import SEO from '../../components/Shared/SEO'
 import { getItem, getCreator } from '../../functions/api'
 import ButtonIconExternal from '../../components/App/Creator/ButtonIconExternal'
+import {
+  getItemDescription,
+  getItemImage,
+  getItemName,
+} from '../../functions/item'
 
 export default function Item({ item, creator }) {
   return (
     <div>
       <SEO
-        title={`#${item.id} - ${item.name || 'Untitled'}`}
-        description={`See ${item.name || 'Untitled'} in Webaverse.`}
-        image={item.image}
+        title={getItemName(item)}
+        description={getItemDescription(item)}
+        image={getItemImage(item)}
       />
       <ItemHeader item={item} creator={creator} />
       <div className="pt-32" />

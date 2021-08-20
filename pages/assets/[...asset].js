@@ -14,8 +14,8 @@ export default function Item({ item, creator }) {
   return (
     <div>
       <SEO
-        title={`#${item.id} - ${getItemName(item)}`}
-        description={`See ${getItemName(item)} in Webaverse.`}
+        title={getItemName(item)}
+        description={getItemDescription(item)}
         image={getItemImage(item)}
       />
       <ItemHeader item={item} creator={creator} />
