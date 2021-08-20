@@ -15,26 +15,26 @@ export async function getEthereumNfts(address, pageNum) {
 }
 
 export async function getFoundationProfile(address) {
-  return fetch(`http://localhost:3000/api/ethereum/foundation/${address}`)
+  return fetch(`https://webaverse.com/api/ethereum/foundation/${address}`)
     .then((res) => res.json())
     .then((res) => (res.error ? null : res.data?.user_by_pk))
 }
 
 export async function getRaribleProfile(address) {
-  return fetch(`http://localhost:3000/api/ethereum/rarible/${address}`)
+  return fetch(`https://webaverse.com/api/ethereum/rarible/${address}`)
     .then((res) => res.json())
     .then((res) => (res.error ? null : res))
 }
 
 export async function getOpenseaNfts(address) {
-  return fetch(`http://localhost:3000/api/ethereum/opensea/${address}`)
+  return fetch(`https://webaverse.com/api/ethereum/opensea/${address}`)
     .then((res) => res.json())
     .then((res) => (res.error ? null : res))
 }
 
 export async function getOpenseaItem(contractAddress, id) {
   return fetch(
-    `http://localhost:3000/api/ethereum/assets/${contractAddress}/${id}`,
+    `https://webaverse.com/api/ethereum/assets/${contractAddress}/${id}`,
   )
     .then((res) => res.json())
     .then((res) => (res.error ? null : res))
