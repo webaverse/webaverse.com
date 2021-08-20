@@ -4,6 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "pre-commit": "npm lint:js",
     "lint:js": "eslint . --ext .js",
     "lint:js:fix": "npm run lint:js -- --fix",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
