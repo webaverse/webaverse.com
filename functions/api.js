@@ -2,6 +2,50 @@ export async function getCreators() {
   return fetch('https://accounts.webaverse.com/').then((res) => res.json())
 }
 
+export async function getCreatorsOpenSeaName(address) {
+  return fetch(`https://api.opensea.io/api/v1/account/${address}`)
+    .then((res) => res.json())
+    .then((res) => res.data)
+}
+
+export async function getEthereumNfts(address, pageNum) {
+  return fetch(
+    `https://webaverse.com/api/ethereum/nfts/${address}/${pageNum}`,
+  ).then((res) => res.json())
+}
+
+export async function getFoundationProfile(address) {
+  return fetch(`http://localhost:3000/api/ethereum/foundation/${address}`)
+    .then((res) => res.json())
+    .then((res) => (res.error ? null : res.data?.user_by_pk))
+}
+
+export async function getRaribleProfile(address) {
+  return fetch(`http://localhost:3000/api/ethereum/rarible/${address}`)
+    .then((res) => res.json())
+    .then((res) => (res.error ? null : res))
+}
+
+export async function getOpenseaNfts(address) {
+  return fetch(`http://localhost:3000/api/ethereum/opensea/${address}`)
+    .then((res) => res.json())
+    .then((res) => (res.error ? null : res))
+}
+
+export async function getAllCreatorsProfiles(address) {
+  const openSeaName = await getCreatorsOpenSeaName(address)
+  const foundationProfile = await getFoundationProfile(address)
+  const raribleProfile = await getRaribleProfile(address)
+  const webaverseProfile = await getCreator(address)
+
+  return {
+    ...webaverseProfile,
+    ...openSeaName,
+    ...foundationProfile,
+    ...raribleProfile,
+  }
+}
+
 export async function getCreatorsWithBalance() {
   return getCreators().then((res) => res)
 }
