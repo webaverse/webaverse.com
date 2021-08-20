@@ -2,6 +2,7 @@ import {
   getCreatorProfileImage,
   getCreatorHomeSpaceImage,
 } from '../../../functions/creator'
+import { addDefaultSrc } from '../../../functions/utils'
 
 export default function CreatorHeader({ creator }) {
   return (
@@ -11,6 +12,7 @@ export default function CreatorHeader({ creator }) {
           alt="Creator&lsquo;s home space"
           className="object-cover object-center w-full h-full"
           src={getCreatorHomeSpaceImage(creator)}
+          onError={addDefaultSrc}
         />
       </div>
       <div className="relative">
@@ -19,7 +21,8 @@ export default function CreatorHeader({ creator }) {
             <img
               className="h-40 w-40 rounded-full"
               src={getCreatorProfileImage(creator)}
-              alt=""
+              alt="creator profile"
+              onError={addDefaultSrc}
             />
           </div>
         </div>

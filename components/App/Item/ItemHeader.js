@@ -5,7 +5,7 @@ import {
 } from '../../../functions/creator'
 import { getItemImage, getItemName } from '../../../functions/item'
 
-import { getFileExt } from '../../../functions/utils'
+import { getFileExt, addDefaultSrc } from '../../../functions/utils'
 
 export default function ItemHeader({ item, creator }) {
   const itemImage = getItemImage(item)
@@ -27,7 +27,7 @@ export default function ItemHeader({ item, creator }) {
             <img
               src={itemImage}
               alt={`the item ${getItemName(item)}`}
-              // onError={addDefaultSrc}
+              onError={addDefaultSrc}
               className="object-contain w-full h-full"
             />
           )}

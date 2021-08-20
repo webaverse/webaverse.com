@@ -5,6 +5,7 @@ import {
   getCreatorProfileImage,
   getCreatorShortName,
 } from '../../../functions/creator'
+import { addDefaultSrc } from '../../../functions/utils'
 
 const CreatorCard = ({ creator }) => (
   <Link href={`/creators/${creator.address}`}>
@@ -19,6 +20,7 @@ const CreatorCard = ({ creator }) => (
               <img
                 src={getCreatorHomeSpaceImage(creator)}
                 className="object-cover flex-shrink-0 min-h-full min-w-full group-hover:opacity-75"
+                onError={addDefaultSrc}
                 alt="creators home space"
               />
             </div>
@@ -28,7 +30,8 @@ const CreatorCard = ({ creator }) => (
               <img
                 className="h-20 w-20 rounded-full"
                 src={getCreatorProfileImage(creator)}
-                alt=""
+                onError={addDefaultSrc}
+                alt="creator profile"
               />
             </span>
             <span className="text-2xl font-medium">

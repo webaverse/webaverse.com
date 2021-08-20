@@ -8,7 +8,7 @@ import {
   getItemName,
   getShortItemName,
 } from '../../../functions/item'
-import { getFileExt } from '../../../functions/utils'
+import { getFileExt, addDefaultSrc } from '../../../functions/utils'
 
 const ItemCard = ({ item, href, creator }) => {
   const itemImage = getItemImage(item)
@@ -31,7 +31,7 @@ const ItemCard = ({ item, href, creator }) => {
                   <img
                     src={itemImage}
                     alt={`the item ${getItemName(item)}`}
-                    // onError={addDefaultSrc}
+                    onError={addDefaultSrc}
                     className="object-cover object-center h-full w-full group-hover:opacity-75"
                   />
                 )}
