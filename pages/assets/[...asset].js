@@ -8,6 +8,7 @@ import {
   getItemName,
   getItemImage,
 } from '../../functions/item'
+import ItemActivity from '../../components/App/Item/ItemActivity'
 
 export default function Item({ item, creator }) {
   return (
@@ -20,50 +21,53 @@ export default function Item({ item, creator }) {
       <ItemHeader item={item} creator={creator} />
       <div className="pt-32" />
       <div className="lg:pt-80" />
-      <div className="px-6 lg:pt-80">
-        <h1 className="text-4xl py-8 font-bold">{getItemName(item)}</h1>
-        {item.description && (
+      <div className="flex lg:pt-80">
+        <div className="flex-shrink flex flex-col px-6">
+          <h1 className="text-4xl py-8 font-bold">{getItemName(item)}</h1>
+          {item.description && (
+            <div className="py-4">
+              <h2 className="text-lg py-2 font-semibold">Description</h2>
+              <p className="text-md">{getItemDescription(item)}</p>
+            </div>
+          )}
           <div className="py-4">
-            <h2 className="text-lg py-2 font-semibold">Description</h2>
-            <p className="text-md">{getItemDescription(item)}</p>
+            <h2 className="text-lg py-2 font-semibold">From Collection</h2>
+            <p className="text-md">{item.collection.name}</p>
           </div>
-        )}
-        <div className="py-4">
-          <h2 className="text-lg py-2 font-semibold">From Collection</h2>
-          <p className="text-md">{item.collection.name}</p>
+          <div className="py-4">
+            {item.traits.length > 0 && (
+              <h2 className="text-lg py-2 font-semibold">Traits</h2>
+            )}
+            {item.traits.length > 0 &&
+              item.traits.map((trait) => (
+                <p className="text-md">
+                  <span className="font-bold">{trait.trait_type}</span>
+                  <span> - {trait.value}</span>
+                </p>
+              ))}
+          </div>
+          <div className="py-4 flex flex-col">
+            {item.external_link && (
+              <ButtonIconExternal
+                icon={
+                  <EyeIcon className="-ml-1 mr-3 h-5 w-5" aria-hidden="true" />
+                }
+                text="View External"
+                url={item.external_link}
+              />
+            )}
+            {item.token_metadata && (
+              <ButtonIconExternal
+                icon={
+                  <CubeIcon className="-ml-1 mr-3 h-5 w-5" aria-hidden="true" />
+                }
+                text="View Metadata"
+                url={item.token_metadata}
+              />
+            )}
+          </div>
         </div>
-        <div className="py-4">
-          {item.traits.length > 0 && (
-            <h2 className="text-lg py-2 font-semibold">Traits</h2>
-          )}
-          {item.traits.length > 0 &&
-            item.traits.map((trait) => (
-              <p className="text-md">
-                <span className="font-bold">{trait.trait_type}</span>
-                <span> - {trait.value}</span>
-              </p>
-            ))}
-        </div>
-        <div className="py-4 flex flex-col">
-          {item.external_link && (
-            <ButtonIconExternal
-              icon={
-                <EyeIcon className="-ml-1 mr-3 h-5 w-5" aria-hidden="true" />
-              }
-              text="View External"
-              url={item.external_link}
-            />
-          )}
-          {item.token_metadata && (
-            <ButtonIconExternal
-              icon={
-                <CubeIcon className="-ml-1 mr-3 h-5 w-5" aria-hidden="true" />
-              }
-              text="View Metadata"
-              url={item.token_metadata}
-            />
-          )}
-        </div>
+        <ItemActivity />
       </div>
     </div>
   )
