@@ -32,6 +32,10 @@ export default function Item({ item, creator }) {
           <h2 className="text-lg py-2 font-semibold">Edition Of</h2>
           <p className="text-5xl font-bold">{item.totalSupply}</p>
         </div>
+        <div className="py-4">
+          <h2 className="text-lg py-2 font-semibold">File Type</h2>
+          <p className="uppercase">{item.properties.ext}</p>
+        </div>
         <div className="py-4 flex flex-col">
           <ButtonIconExternal
             icon={<EyeIcon className="-ml-1 mr-3 h-5 w-5" aria-hidden="true" />}
