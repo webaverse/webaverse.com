@@ -43,6 +43,7 @@ export function getCreatorWebsite(creator) {
 export function getCreatorName(creator) {
   return (
     creator?.name || // webaverse, rarible
+    creator?.username || // webaverse, rarible
     creator?.user?.username || // opensea
     creator?.firstName || // foundation
     'Anonymous'
