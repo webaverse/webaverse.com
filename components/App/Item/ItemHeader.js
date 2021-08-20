@@ -2,10 +2,10 @@ import Link from 'next/link'
 import {
   getCreatorProfileImage,
   getCreatorShortName,
-} from '../../functions/creator'
-import { getItemImage, getItemName } from '../../functions/item'
+} from '../../../functions/creator'
+import { getItemImage, getItemName } from '../../../functions/item'
 
-import { getFileExt } from '../../functions/utils'
+import { getFileExt } from '../../../functions/utils'
 
 export default function ItemHeader({ item, creator }) {
   const itemImage = getItemImage(item)

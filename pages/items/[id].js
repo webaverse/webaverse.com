@@ -1,5 +1,5 @@
 import { EyeIcon, CubeIcon } from '@heroicons/react/solid'
-import ItemHeader from '../../components/App/ItemHeader'
+import ItemHeader from '../../components/App/Item/ItemHeader'
 import SEO from '../../components/Shared/SEO'
 import { getItem, getCreator } from '../../functions/api'
 import ButtonIconExternal from '../../components/App/Creator/ButtonIconExternal'
