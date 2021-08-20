@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   const { address } = req.query
   const [userAddress, pageNum] = address
 
-  const NFTS_PER_PAGE = 20
+  const NFTS_PER_PAGE = 22
   const nfts = []
 
   if (address) {
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
             .then((data) => data.json())
             .then((data) => {
               if (data.image || data.image_url || data.animation_url) {
-                const image =
+                const replacedImage =
                   replaceIpfs(data.image) ||
                   replaceIpfs(data.image_url) ||
                   replaceIpfs(data.animation_url) ||
@@ -43,9 +43,11 @@ export default async function handler(req, res) {
 
                 nfts.push({
                   ...data,
-                  image,
+                  image: replacedImage,
                   animation_url: replaceIpfs(data.animation_url) || '',
                 })
+              } else {
+                nfts.push(data)
               }
             })
             .catch((err) => err)
