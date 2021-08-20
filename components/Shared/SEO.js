@@ -13,6 +13,7 @@ export default function SEO({
       <meta content="https://webaverse.com" property="og:url" />
       <meta content="website" property="og:type" />
       <meta content={title} property="og:title" />
+      <meta content="Webaverse" property="og:site_name" />
       <meta content={description} property="og:description" />
 
       {/* Twitter */}
