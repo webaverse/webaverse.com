@@ -1,5 +1,11 @@
 import Link from 'next/link'
 import {
+  getCreatorBio,
+  getCreatorHomeSpaceImage,
+  getCreatorProfileImage,
+  getCreatorShortName,
+} from '../../../functions/creator'
+import {
   truncateString,
   getRandomWebaverseAvatarImage,
   getRandomWebaverseImage,
@@ -16,12 +22,7 @@ const CreatorCard = ({ creator }) => (
           <li>
             <div className="w-auto h-52 flex justify-center align-middle overflow-hidden bg-gray-200">
               <img
-                src={
-                  creator.homeSpacePreview !== ''
-                    ? creator.homeSpacePreview
-                    : getRandomWebaverseImage()
-                }
-                // onError={addDefaultSrc}
+                src={getCreatorHomeSpaceImage(creator)}
                 className="object-cover flex-shrink-0 min-h-full min-w-full group-hover:opacity-75"
                 alt="creators home space"
               />
@@ -31,17 +32,14 @@ const CreatorCard = ({ creator }) => (
             <span className="absolute -top-10 left-5 h-20 w-20 rounded-full overflow-hidden bg-gray-100">
               <img
                 className="h-20 w-20 rounded-full"
-                src={
-                  creator.avatarPreview
-                    ? creator.avatarPreview
-                    : getRandomWebaverseAvatarImage()
-                }
+                src={getCreatorProfileImage(creator)}
                 alt=""
               />
             </span>
             <span className="text-2xl font-medium">
-              {truncateString(creator.name, 20) || 'Anonymous'}
+              {getCreatorShortName(creator, 20)}
             </span>
+            <span className="text-md">{getCreatorBio(creator)}</span>
           </li>
         </ul>
       </div>
