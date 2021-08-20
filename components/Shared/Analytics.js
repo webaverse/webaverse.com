@@ -19,7 +19,7 @@ export default function Analytics() {
           `,
         }}
       />
-      {/* Microsoft Clarity */}
+      {/* Microsoft Clarity Tag */}
       <script
         dangerouslySetInnerHTML={{
           __html: `
