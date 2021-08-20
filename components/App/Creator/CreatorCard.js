@@ -5,11 +5,6 @@ import {
   getCreatorProfileImage,
   getCreatorShortName,
 } from '../../../functions/creator'
-import {
-  truncateString,
-  getRandomWebaverseAvatarImage,
-  getRandomWebaverseImage,
-} from '../../../functions/utils'
 
 const CreatorCard = ({ creator }) => (
   <Link href={`/creators/${creator.address}`}>
