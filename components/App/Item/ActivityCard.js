@@ -1,7 +1,7 @@
 import { ExternalLinkIcon } from '@heroicons/react/solid'
 import { getRandomWebaverseAvatarImage } from '../../../functions/utils'
 
-export default function ButtonIconExternal({ transaction }) {
+export default function ButtonIconExternal() {
   const url = ''
   const image = getRandomWebaverseAvatarImage()
   const text = 'Test'
