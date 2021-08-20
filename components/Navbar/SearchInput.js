@@ -45,7 +45,7 @@ const SearchInput = ({ extended }) => {
               id="search"
               name="search"
               className="shadow-sm h-14 lg:h-10 w-full bg-opacity-60 bg-white rounded-full py-4 pl-10 pr-3 text-sm placeholder-gray-500 focus:bg-white focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-gray-300 focus:border-gray-300 sm:text-sm"
-              placeholder="Search"
+              placeholder="Search Webaverse"
               type="search"
               onChange={handleSearchInput}
             />
