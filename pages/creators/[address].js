@@ -49,10 +49,8 @@ export default function CreatorPage({
               </div>
             ))}
 
-            {!webaverseItems &&
-              webaverseItems.length < 1 &&
-              !ethereumItems &&
-              ethereumItems.length < 1 && (
+            {(!webaverseItems || webaverseItems.length < 1) &&
+              (!ethereumItems || ethereumItems.length < 1) && (
                 <h1 className="col-span-3 text-xl pt-4 mx-auto">
                   This user has no items.
                 </h1>
