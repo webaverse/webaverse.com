@@ -5,9 +5,8 @@ const SearchResults = ({ creators, items, lands }) => (
   <div
     className="px-4 py-4 absolute top-14 h-auto w-full bg-white mt-1 shadow rounded-lg flex"
     aria-hidden
-    onClick={(e) => e.target.blur()}
   >
-    <div className="">
+    <div className="w-full" onClick={(e) => e.target.blur()}>
       {creators.length > 0 && (
         <span className="my-4 text-gray-500 text-xl font-semibold">
           Creators
