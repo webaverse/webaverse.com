@@ -134,7 +134,7 @@ export default function LandingCopy() {
               to flow, so we can have a 3D Internet.
             </p>
           </blockquote>
-          <h2>Interoparability</h2>
+          <h2>Interoperability</h2>
           <p>
             We don&lsquo;t want to just build a virtual world for our NFTs, we
             want to support NFTs to be operable in Webaverse from other
