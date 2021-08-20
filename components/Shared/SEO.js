@@ -8,6 +8,8 @@ export default function SEO({
   return (
     <Head>
       <title>{title}</title>
+
+      {/* OG Tag */}
       <meta name="description" content={description} />
       <meta content={image} property="og:image" />
       <meta content="https://webaverse.com" property="og:url" />
@@ -15,6 +17,10 @@ export default function SEO({
       <meta content={title} property="og:title" />
       <meta content="Webaverse" property="og:site_name" />
       <meta content={description} property="og:description" />
+
+      {/* Other Metadata */}
+      <meta name="msapplication-TileColor" content="#4f46e5" />
+      <meta name="theme-color" content="#4f46e5" />
 
       {/* Twitter */}
       <meta name="twitter:title" content={title} />
@@ -47,8 +53,6 @@ export default function SEO({
         href="/favicon/safari-pinned-tab.svg"
         color="#5bbad5"
       />
-      <meta name="msapplication-TileColor" content="#4f46e5" />
-      <meta name="theme-color" content="#4f46e5" />
     </Head>
   )
 }
