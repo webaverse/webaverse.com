@@ -18,7 +18,7 @@ export default function SEO({
       <meta content="Webaverse" property="og:site_name" />
       <meta content={description} property="og:description" />
 
-      {/* Other Metadata Tags */}
+      {/* Other Metadata */}
       <meta name="msapplication-TileColor" content="#4f46e5" />
       <meta name="theme-color" content="#4f46e5" />
 
