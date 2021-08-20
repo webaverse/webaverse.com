@@ -44,7 +44,7 @@ export default function Item({ item, creator }) {
         <div className="py-4 flex flex-col">
           <ButtonIconExternal
             icon={<EyeIcon className="-ml-1 mr-3 h-5 w-5" aria-hidden="true" />}
-            text="View External"
+            text="Visit in Webaverse"
             url={item.external_url}
           />
           <ButtonIconExternal
