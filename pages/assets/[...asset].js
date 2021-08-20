@@ -22,12 +22,12 @@ export default function Item({ item, creator }) {
       <div className="pt-32" />
       <div className="lg:pt-80" />
       <div className="flex lg:pt-80">
-        <div className="flex-shrink flex flex-col px-6">
+        <div className="w-full flex flex-col px-6">
           <h1 className="text-4xl py-8 font-bold">{getItemName(item)}</h1>
           {item.description && (
             <div className="py-4">
               <h2 className="text-lg py-2 font-semibold">Description</h2>
-              <p className="text-md">{getItemDescription(item)}</p>
+              <p className="text-md max-w-sm">{getItemDescription(item)}</p>
             </div>
           )}
           <div className="py-4">
@@ -41,8 +41,8 @@ export default function Item({ item, creator }) {
             {item.traits.length > 0 &&
               item.traits.map((trait) => (
                 <p className="text-md">
-                  <span className="font-bold">{trait.trait_type}</span>
-                  <span> - {trait.value}</span>
+                  <span className="font-medium">{trait.trait_type}</span>
+                  <span>: {trait.value}</span>
                 </p>
               ))}
           </div>
