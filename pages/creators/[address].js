@@ -24,9 +24,9 @@ export default function CreatorPage({
         image={getCreatorProfileImage(creator)}
       />
       <CreatorHeader creator={creator} />
-      <div className="pt-12 lg:pt-80 flex lg:flex-nowrap flex-wrap">
+      <div className="pt-12 lg:pt-80 flex flex-wrap lg:flex-nowrap">
         <CreatorSidebar creator={creator} />
-        <div className="flex-1">
+        <div className="w-full">
           <div className="px-4 min-h-full w-full overflow-hidden grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:gap-x-8">
             {webaverseItems?.map((item) => (
               <div key={`${item.id}`}>

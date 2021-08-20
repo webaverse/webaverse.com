@@ -21,7 +21,7 @@ export default function Item({ item, creator }) {
       <ItemHeader item={item} creator={creator} />
       <div className="pt-32" />
       <div className="lg:pt-80" />
-      <div className="flex lg:pt-80">
+      <div className="flex flex-wrap lg:flex-nowrap lg:pt-80">
         <div className="w-full flex flex-col px-6">
           <h1 className="text-4xl py-8 font-bold">{getItemName(item)}</h1>
           {item.description && (

@@ -4,7 +4,7 @@ export default function ButtonIconExternal({ icon, text, url }) {
   return (
     <button
       type="button"
-      className="w-64 text-black inline-flex items-center px-6 py-3 my-1 border border-transparent shadow-sm text-base font-medium bg-white overflow-hidden rounded-md transform transition ease-in duration-100 hover:-translate-y-0.5 hover:shadow-lg"
+      className="w-80 text-black inline-flex items-center px-6 py-3 my-1 border border-transparent shadow-sm text-base font-medium bg-white overflow-hidden rounded-md transform transition ease-in duration-100 hover:-translate-y-0.5 hover:shadow-lg"
     >
       <a
         href={url}
