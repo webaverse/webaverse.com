@@ -40,6 +40,11 @@ export async function getOpenseaItem(contractAddress, id) {
     .then((res) => (res.error ? null : res))
 }
 
+export async function getCreator(address) {
+  return fetch(`https://accounts.webaverse.com/${address.toLowerCase()}`).then(
+    (res) => res.json(),
+  )
+}
 export async function getAllCreatorsProfiles(address) {
   const openSeaName = await getCreatorsOpenSeaName(address)
   const foundationProfile = await getFoundationProfile(address)
@@ -89,12 +94,6 @@ export async function getItems(pageNum) {
 export async function getCreatorsItems(address) {
   return fetch(`https://tokens.webaverse.com/${address}`).then((res) =>
     res.json(),
-  )
-}
-
-export async function getCreator(address) {
-  return fetch(`https://accounts.webaverse.com/${address.toLowerCase()}`).then(
-    (res) => res.json(),
   )
 }
 

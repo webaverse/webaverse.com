@@ -69,8 +69,6 @@ export async function getServerSideProps(context) {
   const webaverseItems = await getCreatorsItems(address)
   const ethereumItems = (await getOpenseaNfts(address)) || []
 
-  const items = [...webaverseItems, ...ethereumItems]
-
   return {
     props: {
       creator,

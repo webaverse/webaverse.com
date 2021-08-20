@@ -10,10 +10,10 @@ import {
 } from '../../functions/item'
 import { getFileExt } from '../../functions/utils'
 
-const ItemCard = ({ item, land, href, creator }) => {
+const ItemCard = ({ item, href, creator }) => {
   const itemImage = getItemImage(item)
   const itemImageExt = getFileExt(itemImage)
-  creator = creator || item.owner
+  const chosenCreator = creator || item.owner
 
   return (
     <Link href={href}>
@@ -43,19 +43,19 @@ const ItemCard = ({ item, land, href, creator }) => {
                   {getShortItemName(item, 20)}
                 </span>
               </div>
-              <Link href={`/creators/${creator.address}`}>
+              <Link href={`/creators/${chosenCreator.address}`}>
                 <a>
                   <div className="flex">
                     <span className="h-8 w-8 rounded-full overflow-hidden bg-gray-100">
                       <img
                         className="object-cover h-8 w-8 rounded-full"
-                        src={getCreatorProfileImage(creator)}
-                        alt="creator profile"
+                        src={getCreatorProfileImage(chosenCreator)}
+                        alt="Creator profile"
                       />
                     </span>
                     <div className="flex items-center">
                       <span className="pl-2 text-md text-gray-500">
-                        {getCreatorShortName(creator, 17)}
+                        {getCreatorShortName(chosenCreator, 17)}
                       </span>
                     </div>
                   </div>

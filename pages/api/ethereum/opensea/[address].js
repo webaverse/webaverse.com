@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     try {
       const creator = await fetch(
         `https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=50&owner=${address}`,
-      ).then((res) => res.json())
+      ).then((data) => data.json())
 
       if (creator.assets?.length > 0) {
         res.status(200).json(creator.assets)

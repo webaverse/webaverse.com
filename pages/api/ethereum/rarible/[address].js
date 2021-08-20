@@ -18,7 +18,7 @@ export default async function handler(req, res) {
           },
           body: JSON.stringify(body),
         },
-      ).then((res) => res.json())
+      ).then((data) => data.json())
 
       if (creator.length > 0) {
         res.status(200).json(creator[0])
