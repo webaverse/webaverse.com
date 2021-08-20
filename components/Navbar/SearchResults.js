@@ -3,7 +3,7 @@ import CreatorSearchResult from './CreatorSearchResult'
 
 const SearchResults = ({ creators, items, lands }) => (
   <div
-    className="px-4 py-4 fixed w-full z-30 w-1096 bg-white mt-1 shadow overflow-hidden rounded-lg"
+    className="px-4 py-4 fixed z-30 w-1096 bg-white mt-1 shadow overflow-hidden rounded-lg"
     aria-hidden
     onClick={(e) => e.target.blur()}
   >
