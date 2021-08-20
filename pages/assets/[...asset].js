@@ -2,7 +2,7 @@ import { EyeIcon, CubeIcon } from '@heroicons/react/solid'
 import ItemHeader from '../../components/App/ItemHeader'
 import SEO from '../../components/Shared/SEO'
 import { getOpenseaItem, getAllCreatorsProfiles } from '../../functions/api'
-import ButtonIconExternal from '../../components/App/ButtonIconExternal'
+import ButtonIconExternal from '../../components/App/Creator/ButtonIconExternal'
 import {
   getItemDescription,
   getItemName,

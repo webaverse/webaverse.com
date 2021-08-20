@@ -1,4 +1,4 @@
-import ItemCard from '../components/App/ItemCard'
+import ItemCard from '../components/App/Item/ItemCard'
 import SEO from '../components/Shared/SEO'
 import Tabs from '../components/App/Tabs'
 

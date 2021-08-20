@@ -1,4 +1,4 @@
-import CreatorCard from '../components/App/CreatorCard'
+import CreatorCard from '../components/App/Creator/CreatorCard'
 import SEO from '../components/Shared/SEO'
 import Tabs from '../components/App/Tabs'
 

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { CheckIcon } from '@heroicons/react/solid'
-import { truncateEthAddress } from '../../functions/utils'
+import { truncateEthAddress } from '../../../functions/utils'
 
 export default function CopyAddress({ address }) {
   const [copied, setCopied] = useState(false)

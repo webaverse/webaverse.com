@@ -3,7 +3,7 @@ import {
   truncateString,
   getRandomWebaverseAvatarImage,
   getRandomWebaverseImage,
-} from '../../functions/utils'
+} from '../../../functions/utils'
 
 const CreatorCard = ({ creator }) => (
   <Link href={`/creators/${creator.address}`}>

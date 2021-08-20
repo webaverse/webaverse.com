@@ -2,7 +2,7 @@ import {
   getCreatorName,
   getCreatorBio,
   getCreatorWebsite,
-} from '../../functions/creator'
+} from '../../../functions/creator'
 import CopyAddress from './CopyAddress'
 
 export default function CreatorHeader({ creator }) {

@@ -3,9 +3,9 @@ import {
   getCreatorsItems,
   getOpenseaNfts,
 } from '../../functions/api'
-import ItemCard from '../../components/App/ItemCard'
-import CreatorHeader from '../../components/App/CreatorHeader'
-import CreatorSidebar from '../../components/App/CreatorSidebar'
+import ItemCard from '../../components/App/Item/ItemCard'
+import CreatorHeader from '../../components/App/Creator/CreatorHeader'
+import CreatorSidebar from '../../components/App/Creator/CreatorSidebar'
 import SEO from '../../components/Shared/SEO'
 import { getCreatorName, getCreatorProfileImage } from '../../functions/creator'
 
