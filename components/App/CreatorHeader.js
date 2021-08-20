@@ -1,6 +1,6 @@
 import {
-  getRandomWebaverseImage,
-  getRandomWebaverseAvatarImage,
+  getCreatorProfileImage,
+  getCreatorHomeSpaceImage,
 } from '../../functions/utils'
 
 export default function CreatorHeader({ creator }) {
@@ -10,11 +10,7 @@ export default function CreatorHeader({ creator }) {
         <img
           alt="Creator&lsquo;s home space"
           className="object-cover object-center w-full h-full"
-          src={
-            creator.homeSpacePreview
-              ? creator.homeSpacePreview
-              : getRandomWebaverseImage()
-          }
+          src={getCreatorHomeSpaceImage(creator)}
         />
       </div>
       <div className="relative">
@@ -22,11 +18,7 @@ export default function CreatorHeader({ creator }) {
           <div className="flex flex-col items-center w-full">
             <img
               className="h-40 w-40 rounded-full"
-              src={
-                creator.avatarPreview
-                  ? creator.avatarPreview
-                  : getRandomWebaverseAvatarImage()
-              }
+              src={getCreatorProfileImage(creator)}
               alt=""
             />
           </div>
