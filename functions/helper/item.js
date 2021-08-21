@@ -14,8 +14,8 @@ export function getShortItemName(item, length) {
 
 export function getItemImage(item) {
   return (
-    replaceIpfs(item.animation_url) ||
     replaceIpfs(item.image) ||
+    replaceIpfs(item.animation_url) ||
     replaceIpfs(item.image_url)
   )
 }
