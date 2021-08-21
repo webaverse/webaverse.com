@@ -1,4 +1,7 @@
-import { getAllCreatorsProfiles } from '../../functions/api/profile'
+import {
+  getAllCreatorsProfiles,
+  getIdxProfile,
+} from '../../functions/api/profile'
 import { getCreatorsItems } from '../../functions/api/creator'
 import { getOpenseaNfts } from '../../functions/api/api'
 import ItemCard from '../../components/App/Item/ItemCard'

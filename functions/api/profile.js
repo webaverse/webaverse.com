@@ -1,4 +1,15 @@
+import Ceramic from '@ceramicnetwork/http-client'
+import { IDX } from '@ceramicstudio/idx'
 import { getCreator } from './creator'
+
+export async function getIdxProfile(address) {
+  const ceramic = new Ceramic('https://gateway-clay.ceramic.network')
+  const idx = new IDX({ ceramic })
+  return idx
+    .get('basicProfile', `${address}@eip155:1`)
+    .then((res) => res)
+    .catch((e) => e)
+}
 
 export async function getOpenSeaProfile(address) {
   return fetch(`https://api.opensea.io/api/v1/account/${address}`)
@@ -19,22 +30,17 @@ export async function getRaribleProfile(address) {
 }
 
 export async function getAllCreatorsProfiles(address) {
-  // const openSeaName = await getOpenSeaProfile(address)
-  // const foundationProfile = await getFoundationProfile(address)
-  // const raribleProfile = await getRaribleProfile(address)
-  // const webaverseProfile = await getCreator(address)
-
-  // return {
-  //   ...webaverseProfile,
-  //   ...openSeaName,
-  //   ...foundationProfile,
-  //   ...raribleProfile,
-  // }
-
   return Promise.all([
     getOpenSeaProfile(address),
     getFoundationProfile(address),
     getRaribleProfile(address),
+    getIdxProfile(address),
     getCreator(address),
-  ]).then((res) => [...res])
+  ]).then(([openSea, foundation, rarible, idx, webaverse]) => ({
+    ...openSea,
+    ...foundation,
+    ...rarible,
+    ...idx,
+    ...webaverse,
+  }))
 }
