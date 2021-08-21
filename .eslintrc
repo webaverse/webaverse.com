@@ -31,6 +31,7 @@
     "import/extensions": "off",
     "implicit-arrow-linebreak": "off",
     "react/prop-types": "off",
+    "@next/next/no-img-element": "off",
     "react/no-danger": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-indent": [2, 2],
