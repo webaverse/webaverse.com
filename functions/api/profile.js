@@ -11,6 +11,12 @@ export async function getIdxProfile(address) {
     .catch((e) => e)
 }
 
+export async function getSuperRareProfile(address) {
+  return fetch(`https://superrare.com/api/v2/user?address=${address}`)
+    .then((res) => res.json())
+    .then((res) => res.result)
+}
+
 export async function getOpenSeaProfile(address) {
   return fetch(`https://api.opensea.io/api/v1/account/${address}`)
     .then((res) => res.json())
@@ -32,12 +38,14 @@ export async function getRaribleProfile(address) {
 export async function getAllCreatorsProfiles(address) {
   return Promise.all([
     getOpenSeaProfile(address),
+    getSuperRareProfile(address),
     getFoundationProfile(address),
     getRaribleProfile(address),
     getIdxProfile(address),
     getCreator(address),
-  ]).then(([openSea, foundation, rarible, idx, webaverse]) => ({
+  ]).then(([openSea, superRare, foundation, rarible, idx, webaverse]) => ({
     ...openSea,
+    ...superRare,
     ...foundation,
     ...rarible,
     ...idx,
