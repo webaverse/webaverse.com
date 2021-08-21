@@ -28,6 +28,6 @@ test('truncate string to 1 character', () => {
 
 test('truncate ethereum address', () => {
   expect(truncateEthAddress('0x33debb5ee65549ggggggg6957da6db17a9d8fe57')).toBe(
-    '0x33de…fe57',
+    '0x33de...fe57',
   )
 })

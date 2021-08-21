@@ -32,7 +32,7 @@ export function truncateEthAddress(address) {
 
   const match = address.match(truncateRegex)
   if (!match) return address
-  return `${match[1]}…${match[2]}`
+  return `${match[1]}...${match[2]}`
 }
 
 export function getRandomWebaverseImage() {
