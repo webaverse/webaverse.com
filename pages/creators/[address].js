@@ -1,8 +1,6 @@
-import {
-  getAllCreatorsProfiles,
-  getCreatorsItems,
-  getOpenseaNfts,
-} from '../../functions/api'
+import { getAllCreatorsProfiles } from '../../functions/api/profile'
+import { getCreatorsItems } from '../../functions/api/creator'
+import { getOpenseaNfts } from '../../functions/api/api'
 import ItemCard from '../../components/App/Item/ItemCard'
 import CreatorHeader from '../../components/App/Creator/CreatorHeader'
 import CreatorSidebar from '../../components/App/Creator/CreatorSidebar'
@@ -11,7 +9,7 @@ import {
   getCreatorBio,
   getCreatorName,
   getCreatorProfileImage,
-} from '../../functions/creator'
+} from '../../functions/helper/creator'
 
 export default function CreatorPage({
   creator,

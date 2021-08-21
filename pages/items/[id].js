@@ -1,13 +1,14 @@
 import { EyeIcon, CubeIcon } from '@heroicons/react/solid'
 import ItemHeader from '../../components/App/Item/ItemHeader'
 import SEO from '../../components/Shared/SEO'
-import { getItem, getCreator } from '../../functions/api'
+import { getCreator } from '../../functions/api/creator'
+import { getItem } from '../../functions/api/item'
 import ButtonIconExternal from '../../components/App/Creator/ButtonIconExternal'
 import {
   getItemDescription,
   getItemImage,
   getItemName,
-} from '../../functions/item'
+} from '../../functions/helper/item'
 
 export default function Item({ item, creator }) {
   return (

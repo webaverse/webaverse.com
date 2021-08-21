@@ -3,7 +3,7 @@ import {
   truncateString,
   getRandomWebaverseAvatarImage,
   getRandomWebaverseImage,
-} from './utils'
+} from '../utils'
 
 export function getCreatorProfileImage(creator) {
   return (

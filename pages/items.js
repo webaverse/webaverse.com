@@ -2,7 +2,7 @@ import ItemCard from '../components/App/Item/ItemCard'
 import SEO from '../components/Shared/SEO'
 import Tabs from '../components/App/Tabs'
 
-import { getItems } from '../functions/api'
+import { getItems } from '../functions/api/item'
 
 export default function Items({ items }) {
   return (

@@ -4,7 +4,7 @@ import {
   getCreatorHomeSpaceImage,
   getCreatorProfileImage,
   getCreatorShortName,
-} from '../../../functions/creator'
+} from '../../../functions/helper/creator'
 import { addDefaultSrc } from '../../../functions/utils'
 
 const CreatorCard = ({ creator }) => (

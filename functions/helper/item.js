@@ -1,4 +1,4 @@
-import { truncateString, replaceIpfs } from './utils'
+import { truncateString, replaceIpfs } from '../utils'
 
 export function getItemName(item) {
   return item.name || 'Untitled'

@@ -7,7 +7,9 @@ import MissionSection from '../components/Landing/MissionSection'
 import NewsletterSignup from '../components/Landing/NewsletterSignup'
 import StatsCard from '../components/Landing/StatsCard'
 import TestimonialCard from '../components/Landing/TestimonialCard'
-import { getBlogPosts, getCreators, getLands } from '../functions/api'
+import { getBlogPosts } from '../functions/api/blog'
+import { getCreators } from '../functions/api/creator'
+import { getLands } from '../functions/api/land'
 
 export default function Home({ creatorsNum, landsNum, blogPosts }) {
   return (

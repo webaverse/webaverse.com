@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { SearchIcon } from '@heroicons/react/solid'
-import { searchCreators, searchItems, searchLands } from '../../functions/api'
+import { searchCreators } from '../../functions/api/creator'
+import { searchItems } from '../../functions/api/item'
+import { searchLands } from '../../functions/api/land'
 import SearchResults from './SearchResults'
 
 const SearchInput = ({ extended }) => {

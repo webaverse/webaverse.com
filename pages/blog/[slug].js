@@ -1,5 +1,5 @@
 import SEO from '../../components/Shared/SEO'
-import { getBlogPost } from '../../functions/api'
+import { getBlogPost } from '../../functions/api/blog'
 
 export default function BlogPost({ post }) {
   return (

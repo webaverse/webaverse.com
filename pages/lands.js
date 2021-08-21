@@ -2,7 +2,7 @@ import ItemCard from '../components/App/Item/ItemCard'
 import SEO from '../components/Shared/SEO'
 import Tabs from '../components/App/Tabs'
 
-import { getLands } from '../functions/api'
+import { getLands } from '../functions/api/land'
 
 export default function Lands({ items }) {
   return (

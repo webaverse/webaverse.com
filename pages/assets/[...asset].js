@@ -1,13 +1,14 @@
 import { EyeIcon, CubeIcon } from '@heroicons/react/solid'
 import ItemHeader from '../../components/App/Item/ItemHeader'
 import SEO from '../../components/Shared/SEO'
-import { getOpenseaItem, getAllCreatorsProfiles } from '../../functions/api'
+import { getAllCreatorsProfiles } from '../../functions/api/profile'
+import { getOpenseaItem } from '../../functions/api/api'
 import ButtonIconExternal from '../../components/App/Creator/ButtonIconExternal'
 import {
   getItemDescription,
   getItemName,
   getItemImage,
-} from '../../functions/item'
+} from '../../functions/helper/item'
 import ItemActivity from '../../components/App/Item/ItemActivity'
 
 export default function Item({ item, creator }) {

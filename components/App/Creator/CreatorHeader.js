@@ -1,7 +1,7 @@
 import {
   getCreatorProfileImage,
   getCreatorHomeSpaceImage,
-} from '../../../functions/creator'
+} from '../../../functions/helper/creator'
 import { addDefaultSrc } from '../../../functions/utils'
 
 export default function CreatorHeader({ creator }) {

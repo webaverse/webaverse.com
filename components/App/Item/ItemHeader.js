@@ -2,8 +2,8 @@ import Link from 'next/link'
 import {
   getCreatorProfileImage,
   getCreatorShortName,
-} from '../../../functions/creator'
-import { getItemImage, getItemName } from '../../../functions/item'
+} from '../../../functions/helper/creator'
+import { getItemImage, getItemName } from '../../../functions/helper/item'
 
 import { getFileExt, addDefaultSrc } from '../../../functions/utils'
 

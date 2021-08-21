@@ -2,12 +2,12 @@ import Link from 'next/link'
 import {
   getCreatorProfileImage,
   getCreatorShortName,
-} from '../../../functions/creator'
+} from '../../../functions/helper/creator'
 import {
   getItemImage,
   getItemName,
   getShortItemName,
-} from '../../../functions/item'
+} from '../../../functions/helper/item'
 import { getFileExt, addDefaultSrc } from '../../../functions/utils'
 
 const ItemCard = ({ item, href, creator }) => {

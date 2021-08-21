@@ -2,7 +2,7 @@ import CreatorCard from '../components/App/Creator/CreatorCard'
 import SEO from '../components/Shared/SEO'
 import Tabs from '../components/App/Tabs'
 
-import { getCreators } from '../functions/api'
+import { getCreators } from '../functions/api/creator'
 
 export default function Creators({ creators }) {
   return (

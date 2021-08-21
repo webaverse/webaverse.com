@@ -1,7 +1,7 @@
 import SEO from '../components/Shared/SEO'
 import SilkTable from '../components/App/SilkTable'
 import Tabs from '../components/App/Tabs'
-import { getCreatorsWithBalance } from '../functions/api'
+import { getCreatorsWithBalance } from '../functions/api/creator'
 
 export default function Silk({ creators }) {
   return (
