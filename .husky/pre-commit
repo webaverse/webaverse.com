@@ -28,6 +28,14 @@ npm run check-types ||
     false;
 )
 
+# Check jest tests 
+npm run test ||
+(
+    echo '❌ Failed Tests check. ❌
+            Review the failed tests above.'
+    false;
+)
+
 # If everything passes... Now we can commit
 echo '🤔🤔🤔🤔... Alright... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
 
