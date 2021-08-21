@@ -4,11 +4,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "pre-commit": "npm run lint:fix && npm run format",
-    "pre-push": "npm run lint:fix && npm run format",
-    "lint": "eslint .",
-    "lint:fix": "npm run lint -- --fix",
-    "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|md)\""
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check .",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js",
+    "format": "prettier --write .",
+    "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build"
   },
   "dependencies": {
     "@apollo/client": "^3.4.7",
