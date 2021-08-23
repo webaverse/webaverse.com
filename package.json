@@ -29,6 +29,7 @@
     "@sentry/nextjs": "^6.11.0",
     "@tailwindcss/line-clamp": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
+    "@types/nprogress": "^0.2.0",
     "graphql": "^15.5.1",
     "next": "latest",
     "nprogress": "^0.2.0",

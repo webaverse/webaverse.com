@@ -39,5 +39,5 @@ test('get creator name', () => {
 })
 
 test('get short creator name', () => {
-  expect(getCreatorShortName(creator, 1)).toBe('t...')
+  expect(getCreatorShortName({ creator, length: 1 })).toBe('t...')
 })

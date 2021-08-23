@@ -16,7 +16,7 @@ test('get item name', () => {
 })
 
 test('get short item name', () => {
-  expect(getShortItemName(item, 1)).toBe('t...')
+  expect(getShortItemName({ item, length: 1 })).toBe('t...')
 })
 
 test('get item description', () => {
