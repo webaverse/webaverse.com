@@ -101,8 +101,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { asset } = context.query
 
   const item = await getOpenseaItem({
-    contractAddress: asset?.[0] ?? '',
-    id: asset?.[1] ?? '',
+    contractAddress: asset?.[0] || '',
+    id: asset?.[1] || '',
   })
 
   const address =
