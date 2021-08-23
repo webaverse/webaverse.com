@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import {
   getCreatorName,
   getCreatorProfileImage,
@@ -36,26 +37,30 @@ export default function SilkTable({ creators }: Props): JSX.Element {
                 {creators.map((creator: Creator) => (
                   <tr key={creator.address}>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex items-center">
-                        <div className="flex-shrink-0 h-10 w-10">
-                          <img
-                            className="h-10 w-10 rounded-full"
-                            src={getCreatorProfileImage(creator)}
-                            alt=""
-                          />
-                        </div>
-                        <div className="ml-4">
-                          <div className="text-sm font-medium text-gray-900">
-                            {getCreatorName(creator)}
+                      <Link href={`/creators/${creator.address}`}>
+                        <a>
+                          <div className="flex items-center">
+                            <div className="flex-shrink-0 h-10 w-10">
+                              <img
+                                className="h-10 w-10 rounded-full"
+                                src={getCreatorProfileImage(creator)}
+                                alt=""
+                              />
+                            </div>
+                            <div className="ml-4">
+                              <div className="text-sm font-medium text-gray-900">
+                                {getCreatorName(creator)}
+                              </div>
+                              <div
+                                title={creator.address}
+                                className="text-sm text-gray-500"
+                              >
+                                {truncateEthAddress(creator.address)}
+                              </div>
+                            </div>
                           </div>
-                          <div
-                            title={creator.address}
-                            className="text-sm text-gray-500"
-                          >
-                            {truncateEthAddress(creator.address)}
-                          </div>
-                        </div>
-                      </div>
+                        </a>
+                      </Link>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm text-gray-900">100 SILK</div>

@@ -78,8 +78,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     props: {
-      creatorsNum: creators.length,
-      landsNum: lands.length,
+      creatorsNum: creators?.length || 0,
+      landsNum: lands?.length || 0,
       blogPosts,
     },
   }

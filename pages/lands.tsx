@@ -27,14 +27,20 @@ export default function Lands({ items }: Props): JSX.Element {
         ]}
       />
       <div className="min-h-full min-w-full overflow-hidden grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-        {items.map((item: Item) => (
-          <ItemCard
-            key={`${item.hash}-${item.id}`}
-            item={item}
-            href={`/lands/${item.id}`}
-            creator={item.owner}
-          />
-        ))}
+        {items?.length > 0 &&
+          items.map((item: Item) => (
+            <ItemCard
+              key={`${item.hash}-${item.id}`}
+              item={item}
+              href={`/lands/${item.id}`}
+              creator={item.owner}
+            />
+          ))}
+        {(!items || items.length < 1) && (
+          <h1 className="col-span-3 text-xl pt-4 mx-auto">
+            There is no land listed.
+          </h1>
+        )}
       </div>
     </div>
   )
