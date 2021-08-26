@@ -30,7 +30,10 @@ export const webaverseApiEndpoint = (() => {
     }
     return `https://${window.location.hostname}`
   }
-  return `http://localhost:3000`
+  if (process.env.NODE_ENV === 'development') {
+    return `http://localhost:3000`
+  }
+  return `https://webaverse.com`
 })()
 
 export const ghostBlogEndpoint =
