@@ -163,8 +163,8 @@ export default function LandingCopy(): JSX.Element {
           <h2>NFTs</h2>
           <p>
             NFTs are the ingredients of the metaverse. They are unique digital
-            objects that contain that contain digital property rights to the
-            stuff in your inventory.
+            objects that contain digital property rights to the stuff in your
+            inventory.
           </p>
           <p>
             The Ethereum blockchain acts like a public good that provides
