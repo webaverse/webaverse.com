@@ -1,3 +1,4 @@
+import { webaverseApiEndpoint } from '../../constants/webaverse'
 import { Items, Item } from '../../types/Item'
 
 interface EthereumNftProps {
@@ -10,12 +11,12 @@ export async function getEthereumNfts({
   pageNum,
 }: EthereumNftProps): Promise<Items> {
   return fetch(
-    `https://webaverse.com/api/ethereum/nfts/${address}/${pageNum}`,
+    `${webaverseApiEndpoint}/api/ethereum/nfts/${address}/${pageNum}`,
   ).then((res) => res.json())
 }
 
 export async function getOpenseaNfts(address: string): Promise<Items> {
-  return fetch(`https://webaverse.com/api/ethereum/opensea/${address}`)
+  return fetch(`${webaverseApiEndpoint}/api/ethereum/opensea/${address}`)
     .then((res) => res.json())
     .then((res) => (res.error ? null : res))
 }
@@ -30,7 +31,7 @@ export async function getOpenseaItem({
   id,
 }: OpenSeaItemProps): Promise<Item> {
   return fetch(
-    `https://webaverse.com/api/ethereum/assets/${contractAddress}/${id}`,
+    `${webaverseApiEndpoint}/api/ethereum/assets/${contractAddress}/${id}`,
   )
     .then((res) => res.json())
     .then((res) => (res.error ? null : res))
