@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { openSeaEndpoint } from '../../../../constants/api'
 
 export default async (
   req: NextApiRequest,
@@ -9,7 +10,7 @@ export default async (
   if (address) {
     try {
       const creator = await fetch(
-        `https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=50&owner=${address}`,
+        `${openSeaEndpoint}/assets?order_direction=desc&offset=0&limit=50&owner=${address}`,
       ).then((data) => data.json())
 
       if (creator.assets?.length > 0) {
