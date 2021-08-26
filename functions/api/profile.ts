@@ -2,6 +2,8 @@
 // import { IDX } from '@ceramicstudio/idx'
 import { getCreator } from './creator'
 import { Creator } from '../../types/Creator'
+import { superRareEndpoint } from '../../constants/api'
+import { webaverseApiEndpoint } from '../../constants/webaverse'
 
 // export async function getIdxProfile(address: string): Promise<unknown> {
 //   const ceramic = new Ceramic('https://gateway-clay.ceramic.network')
@@ -10,25 +12,27 @@ import { Creator } from '../../types/Creator'
 // }
 
 export async function getSuperRareProfile(address: string): Promise<Creator> {
-  return fetch(`https://superrare.com/api/v2/user?address=${address}`)
+  return fetch(`${superRareEndpoint}/user?address=${address}`)
     .then((res) => res.json())
     .then((res) => res.result)
 }
 
 export async function getOpenSeaProfile(address: string): Promise<Creator> {
-  return fetch(`https://api.opensea.io/api/v1/account/${address}`)
+  return fetch(
+    `${webaverseApiEndpoint}/api/ethereum/profiles/opensea/${address}`,
+  )
     .then((res) => res.json())
     .then((res) => res.data)
 }
 
 export async function getFoundationProfile(address: string): Promise<Creator> {
-  return fetch(`https://webaverse.com/api/ethereum/foundation/${address}`)
+  return fetch(`${webaverseApiEndpoint}/api/ethereum/foundation/${address}`)
     .then((res) => res.json())
     .then((res) => (res.error ? null : res.data?.user_by_pk))
 }
 
 export async function getRaribleProfile(address: string): Promise<Creator> {
-  return fetch(`https://webaverse.com/api/ethereum/rarible/${address}`)
+  return fetch(`${webaverseApiEndpoint}/api/ethereum/rarible/${address}`)
     .then((res) => res.json())
     .then((res) => (res.error ? null : res))
 }
