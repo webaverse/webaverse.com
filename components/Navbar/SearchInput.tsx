@@ -9,7 +9,9 @@ import { Items } from '../../types/Item'
 import { useAppSelector } from '../../redux/hooks'
 
 const SearchInput = (): JSX.Element => {
-  const profile = useAppSelector((state) => state?.web3Reducer?.profile)
+  const address = useAppSelector(
+    (state) => state?.web3Reducer?.profile?.address,
+  )
   const [creators, setCreators] = useState<Creators>([])
   const [items, setItems] = useState<Items>([])
   const [lands, setLands] = useState<Items>([])
@@ -35,7 +37,7 @@ const SearchInput = (): JSX.Element => {
   return (
     <div
       className={`group min-w-0 flex-1 md:px-8 lg:px-0 ${
-        profile ? 'col-span-8' : 'col-span-9'
+        address ? 'col-span-8' : 'col-span-9'
       }`}
     >
       <div className="flex items-center px-6 py-3 md:max-w-3xl md:mx-auto lg:max-w-none lg:mx-0 xl:px-0">

@@ -87,7 +87,7 @@ const Navbar = (): JSX.Element => {
                     )}
                   </Popover.Button>
                 </div>
-                {!web3State || !web3State?.profile ? (
+                {!web3State || !web3State?.profile?.address ? (
                   <div className="hidden lg:flex lg:items-center justify-center xl:col-span-2">
                     <a
                       href="#"
