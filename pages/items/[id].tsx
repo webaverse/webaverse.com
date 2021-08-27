@@ -7,8 +7,8 @@ import { getItem } from '../../functions/api/item'
 import ButtonIconExternal from '../../components/App/Creator/ButtonIconExternal'
 import {
   getItemDescription,
-  getItemImage,
   getItemName,
+  getItemPreviewImage,
 } from '../../functions/helper/item'
 import { Item } from '../../types/Item'
 import { Creator } from '../../types/Creator'
@@ -24,7 +24,7 @@ export default function ItemPage({ item, creator }: Props): JSX.Element {
       <SEO
         title={getItemName(item)}
         description={getItemDescription(item)}
-        image={getItemImage(item)}
+        image={getItemPreviewImage(item)}
       />
       <ItemHeader item={item} creator={creator} />
       <div className="px-6">
