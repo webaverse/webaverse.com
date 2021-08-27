@@ -4,7 +4,7 @@ import {
   getCreatorName,
   getCreatorProfileImage,
 } from '../../../functions/helper/creator'
-import { truncateEthAddress } from '../../../functions/utils'
+import { numberWithCommas, truncateEthAddress } from '../../../functions/utils'
 import { ParsedLog } from '../../../types/Log'
 
 interface Props {
@@ -25,15 +25,20 @@ export default function ButtonIconExternal({ log }: Props): JSX.Element {
       />
       <div className="ml-4 mx-auto text-left flex flex-col">
         <span className="block max-w-md">
-          {log.status} {log.status === 'Auction Started' ? 'by' : 'from'}{' '}
+          {log.status}{' '}
+          {log.status === 'Auction Started' || log.status === 'Minted'
+            ? 'by'
+            : 'from'}{' '}
           <Link href={`/creators/${log.fromAccount}`}>
             <a>
-              {log.fromProfile
-                ? getCreatorName(log.fromProfile)
-                : truncateEthAddress(log.fromAccount)}{' '}
+              {log.fromProfile &&
+                log.fromProfile.user?.username !== 'NullAddress' &&
+                getCreatorName(log.fromProfile)}{' '}
             </a>
           </Link>
-          {log.toAccount ? 'to' : ''}{' '}
+          {log.toAccount && log.fromProfile.user?.username !== 'NullAddress'
+            ? 'to'
+            : ''}{' '}
           <Link href={`/creators/${log.toAccount}`}>
             <a>
               {log.toProfile.address !== ''
@@ -50,13 +55,16 @@ export default function ButtonIconExternal({ log }: Props): JSX.Element {
         {log.status !== 'Auction Started' && (
           <>
             <span className="block max-w-md">
-              {log.price || ''} {log.symbol}
+              {log.price ? numberWithCommas(log.price.toString()) : ''}{' '}
+              {log.symbol}
             </span>
             <span className="block max-w-md font-light text-gray-500">
               {log.usd_price ? '$' : ''}
               {log.usd_price
-                ? parseFloat(String(Number(log.usd_price) * log.price)).toFixed(
-                    2,
+                ? numberWithCommas(
+                    parseFloat(
+                      String(Number(log.usd_price) * log.price),
+                    ).toFixed(2),
                   )
                 : ''}
             </span>
