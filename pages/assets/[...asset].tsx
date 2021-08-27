@@ -8,7 +8,7 @@ import ButtonIconExternal from '../../components/App/Creator/ButtonIconExternal'
 import {
   getItemDescription,
   getItemName,
-  getItemImage,
+  getItemPreviewImage,
 } from '../../functions/helper/item'
 import ItemActivity from '../../components/App/Item/ItemActivity'
 import { Item, Trait } from '../../types/Item'
@@ -27,12 +27,10 @@ export default function AssetPage({ item, creator, logs }: Props): JSX.Element {
       <SEO
         title={getItemName(item)}
         description={getItemDescription(item)}
-        image={getItemImage(item)}
+        image={getItemPreviewImage(item)}
       />
       <ItemHeader item={item} creator={creator} />
-      <div className="pt-32" />
-      <div className="lg:pt-80" />
-      <div className="flex flex-wrap lg:flex-nowrap lg:pt-80">
+      <div className="flex flex-wrap lg:flex-nowrap">
         <div className="w-full flex flex-col px-6">
           <h1 className="text-4xl py-8 font-bold">{getItemName(item)}</h1>
           {item.description && (
@@ -45,16 +43,16 @@ export default function AssetPage({ item, creator, logs }: Props): JSX.Element {
             <h2 className="text-lg py-2 font-semibold">From Collection</h2>
             <p className="text-md">{item.collection.name}</p>
           </div>
-          <div className="py-4">
+          <div className="py-4 ">
             {item.traits.length > 0 && (
               <h2 className="text-lg py-2 font-semibold">Traits</h2>
             )}
             {item.traits.length > 0 &&
               item.traits.map((trait: Trait) => (
-                <p className="text-md">
-                  <span className="font-medium">{trait.trait_type}</span>
-                  <span>: {trait.value}</span>
-                </p>
+                <div className="text-md max-w-sm whitespace-normal break-all">
+                  <span className="font-medium">{trait.trait_type}: </span>
+                  <span className="inline-block">{trait.value}</span>
+                </div>
               ))}
           </div>
           <div className="py-4 flex flex-col">
