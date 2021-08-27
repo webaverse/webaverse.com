@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import Link from 'next/link'
 import { Popover, Menu, Transition } from '@headlessui/react'
-import { LightningBoltIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import SearchInput from './SearchInput'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { disconnect } from '../../redux/slices/web3'
@@ -31,6 +31,20 @@ const Navbar = (): JSX.Element => {
     })
     connectWithWeb3Modal()
   }
+
+  const mobileNavigation = [
+    { name: 'Creators', href: `/creators` },
+    { name: 'Items', href: `/items` },
+    { name: 'Lands', href: `/lands` },
+    { name: 'Silk', href: `/silk` },
+    { name: 'Blog', href: `/blog` },
+    { name: 'Docs', href: `https://docs.webaverse.com` },
+    {
+      name: 'Careers',
+      href: `https://www.notion.so/webaverse/Webaverse-is-Hiring-8fb49c069c2f450f93ebb911149f21bd`,
+    },
+    { name: 'Join Discord', href: 'https://discord.gg/R5wqYhvv53' },
+  ]
 
   const userNavigation = [
     {
@@ -180,27 +194,38 @@ const Navbar = (): JSX.Element => {
               aria-label="Global"
             >
               <div className="border-t border-gray-200 pt-4 pb-3">
-                <div className="max-w-3xl mx-auto px-4 flex items-center sm:px-6">
-                  <button
-                    type="button"
-                    className="ml-auto flex-shrink-0 bg-white rounded-full p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
-                    <span className="sr-only">View notifications</span>
-                    <LightningBoltIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-                </div>
-                <div className="pt-3 max-w-3xl mx-auto px-2 space-y-1 sm:px-4">
-                  {userNavigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      onClick={item.handleClick}
-                      className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
+                {web3State && web3State?.profile?.address ? (
+                  <div className="pt-3 max-w-3xl mx-auto px-2 space-y-1 sm:px-4">
+                    {userNavigation.map((item) => (
+                      <Link href={item.href}>
+                        <a
+                          key={item.name}
+                          aria-hidden
+                          onClick={item.handleClick}
+                          className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+                        >
+                          {item.name}
+                        </a>
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="pt-3 max-w-3xl mx-auto px-2 space-y-1 sm:px-4">
+                    {mobileNavigation.map((item) => (
+                      <Link href={item.href}>
+                        <a
+                          key={item.name}
+                          aria-hidden
+                          className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+                        >
+                          <span className="pointer-events-none">
+                            {item.name}
+                          </span>
+                        </a>
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             </Popover.Panel>
           </>

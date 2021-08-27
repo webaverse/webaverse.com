@@ -30,6 +30,7 @@ export function truncateString(string: string, length: number): string {
 }
 
 export function truncateEthAddress(address: string): string {
+  if (!address) return address
   // Captures 0x + 4 characters, then the last 4 characters.
   const truncateRegex = /^(0x[a-zA-Z0-9]{4})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/
 

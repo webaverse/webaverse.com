@@ -3,7 +3,7 @@ import { EyeIcon, CubeIcon } from '@heroicons/react/solid'
 import ItemHeader from '../../components/App/Item/ItemHeader'
 import SEO from '../../components/Shared/SEO'
 import { getAllCreatorsProfiles } from '../../functions/api/profile'
-import { getOpenseaItem } from '../../functions/api/api'
+import { getNftLogs, getOpenseaItem } from '../../functions/api/api'
 import ButtonIconExternal from '../../components/App/Creator/ButtonIconExternal'
 import {
   getItemDescription,
@@ -13,13 +13,15 @@ import {
 import ItemActivity from '../../components/App/Item/ItemActivity'
 import { Item, Trait } from '../../types/Item'
 import { Creator } from '../../types/Creator'
+import { ParsedLogs } from '../../types/Log'
 
 interface Props {
   item: Item
   creator: Creator
+  logs: ParsedLogs
 }
 
-export default function AssetPage({ item, creator }: Props): JSX.Element {
+export default function AssetPage({ item, creator, logs }: Props): JSX.Element {
   return (
     <div>
       <SEO
@@ -91,7 +93,7 @@ export default function AssetPage({ item, creator }: Props): JSX.Element {
             )}
           </div>
         </div>
-        <ItemActivity />
+        <ItemActivity logs={logs} />
       </div>
     </div>
   )
@@ -107,14 +109,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const address =
     item?.owner?.user?.username === 'NullAddress'
-      ? item?.creator?.address
+      ? item?.last_sale?.transaction?.from_account?.address
       : item?.owner?.address
+
   const creator = await getAllCreatorsProfiles(address as string)
+  const logs = await getNftLogs({
+    contractAddress: asset?.[0] || '',
+    id: asset?.[1] || '',
+  })
 
   return {
     props: {
       item,
       creator,
+      logs,
     },
   }
 }
