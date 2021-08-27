@@ -41,12 +41,12 @@ const NewsletterSignup = ({ title, description, cta }: Props): JSX.Element => (
               {cta}
             </button>
           </form>
-          <p className="mt-3 text-sm text-indigo-100">
+          {/* <p className="mt-3 text-sm text-indigo-100">
             We care about the protection of your data. Read our{' '}
             <a href="#" className="text-white font-medium underline">
               Privacy Policy.
             </a>
-          </p>
+          </p> */}
         </div>
       </div>
     </div>
