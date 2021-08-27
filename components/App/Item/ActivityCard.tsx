@@ -50,7 +50,11 @@ export default function ButtonIconExternal({ log }: Props): JSX.Element {
             </span>
             <span className="block max-w-md font-light text-gray-500">
               {log.usd_price ? '$' : ''}
-              {log.usd_price ? parseFloat(log.usd_price).toFixed(2) : ''}
+              {log.usd_price
+                ? parseFloat(String(Number(log.usd_price) * log.price)).toFixed(
+                    2,
+                  )
+                : ''}
             </span>
           </>
         )}
