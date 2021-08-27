@@ -6,11 +6,7 @@ interface Props {
   description: string
 }
 
-export default function SEO({
-  image = '/img/hero.png',
-  title = 'Webaverse',
-  description = 'An internet scale cinematic universe.',
-}: Props): JSX.Element {
+export default function SEO({ image, title, description }: Props): JSX.Element {
   return (
     <Head>
       <title>{title}</title>
