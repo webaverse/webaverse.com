@@ -21,7 +21,7 @@ export async function getOpenseaNfts(address: string): Promise<Items> {
     .then((res) => (res.error ? null : res))
 }
 
-interface OpenSeaItemProps {
+interface ApiProps {
   contractAddress: string
   id: string
 }
@@ -29,9 +29,20 @@ interface OpenSeaItemProps {
 export async function getOpenseaItem({
   contractAddress,
   id,
-}: OpenSeaItemProps): Promise<Item> {
+}: ApiProps): Promise<Item> {
   return fetch(
     `${webaverseApiEndpoint}/api/ethereum/assets/${contractAddress}/${id}`,
+  )
+    .then((res) => res.json())
+    .then((res) => (res.error ? null : res))
+}
+
+export async function getNftLogs({
+  contractAddress,
+  id,
+}: ApiProps): Promise<unknown> {
+  return fetch(
+    `${webaverseApiEndpoint}/api/ethereum/logs/${contractAddress}/${id}`,
   )
     .then((res) => res.json())
     .then((res) => (res.error ? null : res))
