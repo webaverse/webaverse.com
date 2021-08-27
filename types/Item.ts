@@ -10,6 +10,7 @@ export interface Item {
   ownerAddress: string
   image: string
   hash: string
+  ext: string
   uri: string
   id: number
   token_id: string
