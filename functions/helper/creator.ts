@@ -3,6 +3,7 @@ import {
   truncateString,
   getRandomWebaverseAvatarImage,
   getRandomWebaverseImage,
+  truncateEthAddress,
 } from '../utils'
 
 import { Creator, CreatorShortNameArgs } from '../../types/Creator'
@@ -48,6 +49,7 @@ export function getCreatorName(creator: Creator): string {
     creator?.username || // webaverse, rarible
     creator?.user?.username || // opensea
     creator?.firstName || // foundation
+    truncateEthAddress(creator?.address) ||
     'Anonymous'
   )
 }
