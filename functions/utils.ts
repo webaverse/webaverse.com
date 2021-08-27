@@ -61,3 +61,7 @@ export function getRandomWebaverseAvatarImage(): string {
 
   return images[Math.floor(images.length * Math.random())]
 }
+
+export function numberWithCommas(x: string): string {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}
