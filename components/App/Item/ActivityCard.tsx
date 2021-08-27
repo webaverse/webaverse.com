@@ -55,8 +55,7 @@ export default function ButtonIconExternal({ log }: Props): JSX.Element {
         {log.status !== 'Auction Started' && (
           <>
             <span className="block max-w-md">
-              {log.price ? numberWithCommas(log.price.toString()) : ''}{' '}
-              {log.symbol}
+              {log.price ? log.price : ''} {log.symbol}
             </span>
             <span className="block max-w-md font-light text-gray-500">
               {log.usd_price ? '$' : ''}
