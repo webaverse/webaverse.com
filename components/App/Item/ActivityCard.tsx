@@ -16,7 +16,11 @@ export default function ButtonIconExternal({ log }: Props): JSX.Element {
     <div className="w-full text-black inline-flex items-center px-6 py-3 my-1 border border-transparent shadow-sm text-base font-medium bg-white overflow-hidden rounded-md ">
       <img
         className="inline-block self-center h-10 w-10 rounded-full"
-        src={getCreatorProfileImage(log.toProfile)}
+        src={
+          log.status !== 'Auction Started'
+            ? getCreatorProfileImage(log.toProfile)
+            : getCreatorProfileImage(log.fromProfile)
+        }
         alt=""
       />
       <div className="ml-4 mx-auto text-left flex flex-col">
