@@ -25,6 +25,13 @@ export interface Item {
   asset_contract: AssetContract
   collection: Collection
   traits: Trait[]
+  last_sale: {
+    transaction: {
+      from_account: {
+        address: string
+      }
+    }
+  }
 }
 
 export interface Collection {
