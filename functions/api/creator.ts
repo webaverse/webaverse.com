@@ -22,7 +22,7 @@ export async function searchCreators(query: string): Promise<Creators> {
 }
 
 export async function getCreator(address: string): Promise<Creator> {
-  return fetch(`${webaverseAccountsEndpoint}/${address.toLowerCase()}`).then(
+  return fetch(`${webaverseAccountsEndpoint}/${address?.toLowerCase()}`).then(
     (res) => res.json(),
   )
 }
