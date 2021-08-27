@@ -27,9 +27,7 @@ export default function ItemPage({ item, creator }: Props): JSX.Element {
         image={getItemImage(item)}
       />
       <ItemHeader item={item} creator={creator} />
-      <div className="pt-32" />
-      <div className="lg:pt-80" />
-      <div className="px-6 lg:pt-80">
+      <div className="px-6">
         <h1 className="text-4xl py-8 font-bold">{item.name || 'Untitled'}</h1>
         {item.description && (
           <div className="py-4">
