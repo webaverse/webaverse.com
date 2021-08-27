@@ -4,6 +4,7 @@ import { getCreator } from './creator'
 import { Creator } from '../../types/Creator'
 import { superRareEndpoint } from '../../constants/api'
 import { webaverseApiEndpoint } from '../../constants/webaverse'
+import { InitialCreatorState } from '../../constants/creator'
 
 // export async function getIdxProfile(address: string): Promise<unknown> {
 //   const ceramic = new Ceramic('https://gateway-clay.ceramic.network')
@@ -40,6 +41,8 @@ export async function getRaribleProfile(address: string): Promise<Creator> {
 export async function getAllCreatorsProfiles(
   address: string,
 ): Promise<Creator> {
+  if (!address) return InitialCreatorState
+
   return Promise.all([
     getOpenSeaProfile(address),
     getSuperRareProfile(address),
