@@ -8,7 +8,7 @@ import MissionSection from '../components/Landing/MissionSection'
 import NewsletterSignup from '../components/Landing/NewsletterSignup'
 import StatsCard from '../components/Landing/StatsCard'
 import TestimonialCard from '../components/Landing/TestimonialCard'
-// import SEO from '../components/Shared/SEO'
+import SEO from '../components/Shared/SEO'
 import { getBlogPosts } from '../functions/api/blog'
 import { getCreators } from '../functions/api/creator'
 import { getLands } from '../functions/api/land'
@@ -27,7 +27,7 @@ export default function Home({
 }: Props): JSX.Element {
   return (
     <div>
-      {/* <SEO /> */}
+      <SEO />
       <Hero />
       <StatsCard creatorsNum={creatorsNum} itemsNum={758} landsNum={landsNum} />
       <TestimonialCard
