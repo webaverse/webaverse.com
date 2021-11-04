@@ -1,9 +1,9 @@
 import Head from 'next/head'
 
 interface Props {
-  image: string
-  title: string
-  description: string
+  image?: string
+  title?: string
+  description?: string
 }
 
 export default function SEO({
